@@ -1,1 +1,13 @@
 /* index.css */
+.main_wrap{
+    position: relative; 
+    top: 60px;
+    width: 1130px;
+    padding: 20px 30px;
+    margin: 0 auto;
+    background-color: #999;
+    display:block;
+}
+.main_wrap > div{
+    
+}

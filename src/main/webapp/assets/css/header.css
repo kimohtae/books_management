@@ -1,13 +1,13 @@
 /* header.css */
 .upper_side{
-    width: 100%; height: 80px;
+    width: 100%; height: 60px;
     background-color: #000; 
     position: fixed; 
     left: 0; top: 0;
     
 }
 .upper_left{
-    height: 80px; width: 500px;
+    height: 60px; width: auto;
     display: inline-block; 
     float: left;
     vertical-align: text-bottom
@@ -16,25 +16,25 @@
 #main_mark{
     display: inline-block;
     position: relative;
-    width: 70px; height: 70px;
-    top: 5px;
-    margin-left: 10px; margin-right: 10px;
+    width: 35px; height: 35px;
+    top: 12px;
+    margin-left: 10px; margin-right: 5px;
     border-radius: 50%; 
     background-color: rgb(255, 255, 255);
 }
 #main_mark>i{
     position:relative;
-    font-size: 60px;
-    left: 14px; top: 5px;
-    color: rgb(156, 156, 156);
+    font-size: 30px;
+    left: 7px; top: 5px;
+    color: rgb(7, 7, 7);
 }
 #search_box{
-    height: 30px; width: 250px;
-    margin-top: 25px;
+    height: 20px; width: 250px;
+    margin-top: 18px;
     display: inline-block;
     word-spacing: 4; color: rgba(26, 8, 8, 0.637);
-    font-size: 18px;
-    background-color: rgba(255, 255, 255, 0.76);
+    font-size: 12px;
+    background-color: rgba(200, 200, 200);
     vertical-align: top;
     border-radius: 15px;
     padding-left: 30px;
@@ -43,7 +43,7 @@
 }
 #search_btn{
     position:relative;
-    top: 5px; font-size: 24px;
+    top: 14px; font-size: 18px;
     margin-left: 0; margin-right: 20px;
     text-decoration: none;
     color: #999;
@@ -52,40 +52,42 @@
 .upper_mid{
     float: left;
     overflow: hidden;
-    width: 600px; height: 80px;
+    width: auto; height: 60px;
     display: inline-block; 
     vertical-align: text-bottom;
     
 }
 .upper_mid > a{
     position:relative;
-    top: 28px; font-size: 28px;
+    top: 14px; font-size: 14px;
+    font-weight: 600;
     margin-left: 20px;
     margin-right: 20px;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(200,200,200);
 }
 .upper_mid > p{
     position:relative;
     display: inline-block;
-    top: 28px; font-size: 28px;
+    top: 14px; font-size: 28px;
+    font-weight: 600;
     margin-left: 10px;
     margin-right: 10px;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(200,200,200);
 }
 
 .upper_right{
-    width: 170px; height: 80px;
+    width: auto; height: 60px;
     display: inline-block; 
     position: fixed;
     right: 0; top: 0;
 }
 .upper_right > a{
     float: right;
-    font-size: 30px;
-    margin: 18px; margin-right: 30px;
+    font-size: 18px;
+    margin: 22px; margin-right: 30px;
     
-    color: rgb(255, 255, 255);
+    color: rgb(200,200,200);
     text-decoration: none;
 }
