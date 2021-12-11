@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohtae.book_management.mapper.Time_log_mapper">
+    <insert id="insertTimeLogCounts">
+        insert into time_log_counts(tlc_sell_count,tlc_like_count,tlc_bi_seq) values (#{sellCnt},#{likeCnt},#{seq}) 
+    </insert>
+    <select id="getDayRank" resultType="java.lang.String">
+        select bi_title from time_log_counts a join book_info b on a.tlc_bi_seq = b.bi_seq 
+        where tlc_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 day) and now()
+        group by tlc_bi_seq order by sum(tlc_sell_count) desc limit 10
+    </select>
+    <select id="getWeekRank" resultType="java.lang.String">
+        select bi_title from time_log_counts a join book_info b on a.tlc_bi_seq = b.bi_seq 
+        where tlc_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 Week) and now()
+        group by tlc_bi_seq order by sum(tlc_sell_count) desc limit 10
+    </select>
+    <select id="getMonthRank" resultType="java.lang.String">
+        select bi_title from time_log_counts a join book_info b on a.tlc_bi_seq = b.bi_seq 
+        where tlc_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 Month) and now()
+        group by tlc_bi_seq order by sum(tlc_sell_count) desc limit 10
+    </select>
+</mapper>

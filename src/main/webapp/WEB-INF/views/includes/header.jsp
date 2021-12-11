@@ -11,12 +11,21 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <Script src="http://code.jquery.com/jquery-3.4.1.min.js"></Script>
+    <script>
+        $(function(){
+            $('#upper_menu_books').click(function(){
+                
+            })
+        
+        })
+    </script>
 </head>
 <body>
     <div class="head_container">
         <div class="upper_side">
             <div class="upper_left">
-                <a href="#" id="main_mark">
+                <a href="/" id="main_mark">
                     <i class="fas fa-lightbulb"></i>
                 </a>        
                 <div class="search_group">
@@ -25,11 +34,10 @@
                 </div>
             </div>
             <div class="upper_mid">
-                
-                <a href="#">Books</a>
-                <a href="#">Goods</a>
-                <a href="#">Events</a>
-                <a href="#">Questions</a>
+                <p id="upper_menu_books">Books</p>
+                <p id="upper_menu_goods">Goods</p>
+                <p id="upper_menu_events">Events</p>
+                <p id="upper_menu_questions">Questions</p>
             </div>
             <div class="upper_right">
                 <a href="#" class="profile"><i class="far fa-user"></i></a>
