@@ -13,28 +13,30 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <div class="upper_side">
-        <div class="upper_left">
-            <a href="#" id="main_mark">
-                <i class="fas fa-lightbulb"></i>
-            </a>        
-            <input type="text" id="search_box" placeholder="search...">
-            <a href="#" id="search_btn"><i class="fas fa-search"></i></a>
+    <div class="head_container">
+        <div class="upper_side">
+            <div class="upper_left">
+                <a href="#" id="main_mark">
+                    <i class="fas fa-lightbulb"></i>
+                </a>        
+                <div class="search_group">
+                    <input type="text" id="search_box" placeholder="Search...">
+                    <button id="search_btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="upper_mid">
+                
+                <a href="#">Books</a>
+                <a href="#">Goods</a>
+                <a href="#">Events</a>
+                <a href="#">Questions</a>
+            </div>
+            <div class="upper_right">
+                <a href="#" class="profile"><i class="far fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-basket"></i></a>
+            </div>        
         </div>
-        <div class="upper_mid">
-            <p>|</p>
-            <a href="#">Books</a>
-            <a href="#">Goods</a>
-            <a href="#">Events</a>
-            <a href="#">Questions</a>
-        </div>
-        <div class="upper_right">
-            <a href="#" class="profile"><i class="far fa-user"></i></a>
-            <a href="#"><i class="fas fa-shopping-basket"></i></a>
-        </div>        
     </div>
-    <div class="down_side">
 
-    </div>
 </body>
 </html>

@@ -12,47 +12,50 @@
 </head>
 <body>
     <%@include file="/WEB-INF/views/includes/header.jsp"%>
+    <%@include file="/WEB-INF/views/includes/side_bar.jsp"%>
     <main>
         <div class="main_container">
             <div class="main_wrap">
-                <div class="rank_box_month">
-                    <h1>이번 달의 도서</h1>
-                    <a href="#">1.sss</a>
-                    <a href="#">2.sss</a>
-                    <a href="#">3.sss</a>
-                    <a href="#">4.sss</a>
-                    <a href="#">5.sss</a>
-                    <a href="#">6.sss</a>
-                    <a href="#">7.sss</a>
-                    <a href="#">8.sss</a>
-                    <a href="#">9.sss</a>
-                    <a href="#">10.sss</a>
-                </div>
-                <div class="rank_box_month">
-                    <h1>이번 주의 도서</h1>
-                    <a href="#">1.sss</a>
-                    <a href="#">2.sss</a>
-                    <a href="#">3.sss</a>
-                    <a href="#">4.sss</a>
-                    <a href="#">5.sss</a>
-                    <a href="#">6.sss</a>
-                    <a href="#">7.sss</a>
-                    <a href="#">8.sss</a>
-                    <a href="#">9.sss</a>
-                    <a href="#">10.sss</a>
-                </div>
-                <div class="rank_box_month">
-                    <h1>오늘의 도서</h1>
-                    <a href="#">1.sss</a>
-                    <a href="#">2.sss</a>
-                    <a href="#">3.sss</a>
-                    <a href="#">4.sss</a>
-                    <a href="#">5.sss</a>
-                    <a href="#">6.sss</a>
-                    <a href="#">7.sss</a>
-                    <a href="#">8.sss</a>
-                    <a href="#">9.sss</a>
-                    <a href="#">10.sss</a>
+               <div class="main_rank_wrap">
+                    <div class="rank_box_month">
+                        <h1>Month Rank</h1>
+                        <a href="#">1.sss</a>
+                        <a href="#">2.sss</a>
+                        <a href="#">3.sss</a>
+                        <a href="#">4.sss</a>
+                        <a href="#">5.sss</a>
+                        <a href="#">6.sss</a>
+                        <a href="#">7.sss</a>
+                        <a href="#">8.sss</a>
+                        <a href="#">9.sss</a>
+                        <a href="#">10.sss</a>
+                    </div>
+                    <div class="rank_box_week">
+                        <h1>Week Rank</h1>
+                        <a href="#">1.sss</a>
+                        <a href="#">2.sss</a>
+                        <a href="#">3.sss</a>
+                        <a href="#">4.sss</a>
+                        <a href="#">5.sss</a>
+                        <a href="#">6.sss</a>
+                        <a href="#">7.sss</a>
+                        <a href="#">8.sss</a>
+                        <a href="#">9.sss</a>
+                        <a href="#">10.sss</a>
+                    </div>
+                    <div class="rank_box_day">
+                        <h1>Day Rank</h1>
+                        <a href="#">1.sss</a>
+                        <a href="#">2.sss</a>
+                        <a href="#">3.sss</a>
+                        <a href="#">4.sss</a>
+                        <a href="#">5.sss</a>
+                        <a href="#">6.sss</a>
+                        <a href="#">7.sss</a>
+                        <a href="#">8.sss</a>
+                        <a href="#">9.sss</a>
+                        <a href="#">10.sss</a>
+                    </div>
                 </div>
             </div>
         </div>
