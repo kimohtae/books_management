@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ohtae.book_management.mapper.Book_info_mapper">
+    <select id="getBookList" resultType="com.ohtae.book_management.data.BookVO">
+        select bi_seq,bi_al_seq,bi_title,bi_publisher,bi_author,
+        bi_page,bi_price,bi_stock,bi_like,bi_reg_dt,bi_mod_dt,bi_ib_seq,
+        bc_parent_category as bi_catP,bc_child_category as bi_catC  
+        from book_info a join book_cat b on a.bi_bc_seq =b.bc_seq 
+        order by bi_seq desc limit 10 offset ${offset}
+    </select>
+    <select id="getBookCounts" resultType="java.lang.Integer">
+        select count(*) from book_info
+    </select>
+    <delete id="deleteBookList">
+        delete from book_info where bi_seq=#{seq}
+    </delete>
+    <insert id="insertBookInfo">
+        
+    </insert>
     
+
+
+
+    <select id="getBookCat" resultType="com.ohtae.book_management.data.BookCatVO">
+        select * from book_cat order by bc_parent_category
+    </select>
+
 </mapper>

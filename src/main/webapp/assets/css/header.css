@@ -63,7 +63,7 @@
     margin-left: 15px;
 
 }
-.upper_mid > p{
+.upper_mid > a{
     display: inline-block;
     text-decoration: none;
     color: #fff;
@@ -71,10 +71,10 @@
     font-size: 14px;
     padding: 0 10px;
 } 
-.upper_mid >p:last-child{
+.upper_mid >a:last-child{
     padding-right: 50px;
 }
-.upper_mid  p:hover{
+.upper_mid  a:hover{
     color: #444;
     cursor: pointer;
 }

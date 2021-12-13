@@ -17,8 +17,8 @@
         <div class="main_container">
             <div class="main_wrap">
                <div class="main_rank_wrap">
-                    <div class="rank_box_month">
-                        <h1>Month Rank</h1>
+                    <div class="rank_box_day">
+                        <h1>Day Rank</h1>
                         <a href="#">1.${dayRank[0]}</a>
                         <a href="#">2.${dayRank[1]}</a>
                         <a href="#">3.${dayRank[2]}</a>
@@ -29,6 +29,7 @@
                         <a href="#">8.${dayRank[7]}</a>
                         <a href="#">9.${dayRank[8]}</a>
                         <a href="#">10.${dayRank[9]}</a>
+                        
                     </div>
                     <div class="rank_box_week">
                         <h1>Week Rank</h1>
@@ -43,8 +44,8 @@
                         <a href="#">9.${weekRank[8]}</a>
                         <a href="#">10.${weekRank[9]}</a>
                     </div>
-                    <div class="rank_box_day">
-                        <h1>Day Rank</h1>
+                    <div class="rank_box_month">
+                        <h1>Month Rank</h1>
                         <a href="#">1.${monthRank[0]}</a>
                         <a href="#">2.${monthRank[1]}</a>
                         <a href="#">3.${monthRank[2]}</a>
@@ -56,6 +57,7 @@
                         <a href="#">9.${monthRank[8]}</a>
                         <a href="#">10.${monthRank[9]}</a>
                     </div>
+                    
                 </div>
             </div>
         </div>
