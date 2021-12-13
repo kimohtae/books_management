@@ -7,11 +7,11 @@ import lombok.Data;
 @Data
 public class BookVO {
     private Integer bi_seq;
-    private Integer bi_al_seq;
     private Integer bi_ib_seq;
+    private Integer bi_al_seq;
     private Integer bi_bc_seq;
+
     private String bi_title;
-    
     private String bi_author;
     private Integer bi_page;
     private Integer bi_price;
@@ -22,4 +22,7 @@ public class BookVO {
 
     private String bi_catP;
     private String bi_catC;
+
+    private String bi_acounts;
+    private String bi_image;
 }

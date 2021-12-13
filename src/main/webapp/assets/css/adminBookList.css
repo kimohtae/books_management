@@ -19,8 +19,59 @@
     border-radius: 15px;
     display:block;
 }
-.admin_book_pager{
+.admin_book_upper{
+    padding: 20px;
+    position: relative;
+    border-bottom: 1px solid #666;
+    margin-bottom: 10px;
+    border-radius: 99px;
+    background-color: #fff;
+}
+.admin_book_upper > h1{
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #111;
     
-    position: absolute;
-    left: 100px; top: 100px;
+}
+.admin_book_upper > div{
+    display: inline-block;
+    float: right;
+    position: relative;
+    top: 5px;
+    right: 20px;
+    text-align: center;
+}
+.admin_book_upper > div:nth-child(2){
+    font-size: 14px;
+}
+.admin_book_upper > button{
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 99px;
+    cursor: pointer;
+    border: 1px solid #111;
+    background-color: #fff;
+    color: #000;
+}
+
+.admin_book_pager{
+    width: 100px;
+    margin: 20px auto;
+    position: relative;
+}
+.admin_book_pager>p{
+    display: inline-block;
+}
+.admin_book_pager a{
+    display: inline-block;
+}
+
+
+.popup_container{
+    display: none;
+}
+.popup_container.active{
+    display: block;
 }

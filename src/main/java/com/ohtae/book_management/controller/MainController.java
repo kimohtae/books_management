@@ -24,7 +24,10 @@ public class MainController {
     @GetMapping("/admin/book")
     public String getAdminBookPage(Model model, @RequestParam @Nullable Integer offset){
         model.addAttribute("data", service.getBookList(offset));
-        model.addAttribute("cat", service.getBookCat());
+        model.addAttribute("account", service.getAccountList());
+        model.addAttribute("image", service.getImageList());
+        model.addAttribute("category", service.getCategoryList());
         return"/adminBookList";
     }
+
 }

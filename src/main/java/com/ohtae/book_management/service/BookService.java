@@ -5,8 +5,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ohtae.book_management.data.AccountsVO;
 import com.ohtae.book_management.data.BookCatVO;
 import com.ohtae.book_management.data.BookVO;
+import com.ohtae.book_management.data.ImageBookVO;
 import com.ohtae.book_management.mapper.Book_info_mapper;
 import com.ohtae.book_management.mapper.Time_log_mapper;
 
@@ -50,9 +52,25 @@ public class BookService {
         Bmapper.deleteBookList(seq);
         return map;
     }
-    public List<BookCatVO> getBookCat(){
-        
-        return Bmapper.getBookCat();
+    public Map<String,Object> postBookListAdd(BookVO data){
+        Map<String,Object> map = new LinkedHashMap<String,Object>();
+        map.put("status", true);
+        map.put("message", "추가 되었습니다.");
+        Bmapper.insertBookInfo(data);
+        return map;
+    }
+
+    public List<AccountsVO> getAccountList(){
+        return Bmapper.getAccountList();
+    }
+    public List<ImageBookVO> getImageList(){
+        return Bmapper.getImageList();
+    }
+    public List<BookCatVO> getCategoryList(){
+        return Bmapper.getCategoryList();
     }
     
+
+    
+
 }

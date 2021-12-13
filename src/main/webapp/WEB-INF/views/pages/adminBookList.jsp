@@ -11,18 +11,43 @@
     <link rel="stylesheet" href="/assets/css/adminBookList.css">
     <script>
         $(function(){
-            $(".add_btn").click(function(){
-                alert("aasdffd")
+            $("#popup_btn").click(function(){
+                $(".popup_container").addClass("active")
             })
             $(".cancel_btn").click(function(){
-                alert("asd")
+                $(".popup_container").removeClass("active")
             })
+
+            $(".add_btn").click(function(){
+                let data = {
+                    "bi_title":$("#input_title").val(),
+                    "bi_author":$("#input_author").val(),
+                    "bi_page":$("#input_page").val(),
+                    "bi_price":$("#input_price").val(),
+                    "bi_ib_seq":$("#input_image").val(),
+                    "bi_al_seq":$("#input_accounts").val(),
+                    "bi_bc_seq":$("#input_cat").val()
+                }
+                $.ajax({
+                    url:"/bookList/add",
+                    type:"post",
+                    data:JSON.stringify(data),
+                    contentType:"application/json",
+                    success:function(r){
+                        alert(r.message);
+                        if(r.status)
+                            location.reload()
+                    }
+                })
+            })
+
 
 
             $(".book_delete").click(function(){
+                if(confirm("정말 삭제하시겠습니까?")==false)return;
                 let seq = $(this).attr("book_seq")
                 $.ajax({
-                    url:"/delete/bookList?seq="+seq,
+                    url:"/bookList/delete?seq="+seq,
                     type:"delete",
                     success:function(r){
                         alert(r.message)
@@ -31,6 +56,8 @@
                     }
                 })
             })
+
+
         })
     </script>
     <title>Document</title>
@@ -41,12 +68,12 @@
         <div class="admin_book_container">
             <div class="admin_book_wrap">
                 <div class="admin_book_upper">
-                    <h1>Book List Administration</h1>
+                    <h1>Book List</h1>
                     <div>
                         <h2>Book Counts</h2>
                         <h2>${data.counts}</h2>
                     </div>
-                    <button></button>
+                    <button id="popup_btn">Add Book</button>
                 </div>
                 <table>
                     <h2> </h2>
@@ -61,6 +88,7 @@
                             <th>종류</th>
                             <th>재고</th>
                             <th>추천</th>
+                            <th>이미지</th>
                             <th>입력일</th>
                             <th>변경일</th>
                             <th>변경</th>
@@ -72,7 +100,7 @@
                                 <td>${item.bi_seq}</td>
                                 <td>${item.bi_title}</td>
                                 <td>${item.bi_author}</td>
-                                <td>${item.bi_publisher}</td>
+                                <td>${item.bi_acounts}</td>
                                 <td>${item.bi_page}</td>
                                 <td>${item.bi_price}</td>
                                 <td>
@@ -80,6 +108,7 @@
                                 </td>
                                 <td>${item.bi_stock}</td>
                                 <td>${item.bi_like}</td>
+                                <td>${item.bi_image}</td>
                                 <td>${item.bi_reg_dt}</td>
                                 <td>${item.bi_mod_dt}</td>
                                 <td>
@@ -90,13 +119,13 @@
                         </c:forEach>
                     </tbody>
                 </table>
-            </div>
-            <div class="admin_book_pager">
-                <p>왼</p>
-                <c:forEach begin="1" end="${data.pages}" var="i">
-                    <a href="/admin/book?offset=${(i-1)*10}">${i}</a>
-                </c:forEach>
-                <p>오</p>
+                <div class="admin_book_pager">
+                    <p>왼</p>
+                    <c:forEach begin="1" end="${data.pages}" var="i">
+                        <a href="/admin/book?offset=${(i-1)*10}">${i}</a>
+                    </c:forEach>
+                    <p>오</p>
+                </div>
             </div>
         </div>
         
@@ -105,16 +134,22 @@
         <div class="popup_wrap">
             <div class="popup_top">Add Book</div>
             <div class="popup_mid">
-                <input type="text" name="" id="">
                 <input type="text" id="input_title">
                 <input type="text" id="input_author">
-                bi_al_seq
                 <input type="number" id="input_page">
                 <input type="number" id="input_price">
-
-                <input type="image" id="input_image">
+                <select id="input_accounts">
+                    <c:forEach items="${account}" var="item">
+                        <option value="${item.al_seq}">${item.al_name}</option>
+                    </c:forEach>
+                </select>
+                <select id="input_image">
+                    <c:forEach items="${image}" var="item">
+                        <option value="${item.ib_seq}">${item.ib_image}</option>
+                    </c:forEach>
+                </select>
                 <select id="input_cat">
-                    <c:forEach items="${cat}" var="item">
+                    <c:forEach items="${category}" var="item">
                         <option value="${item.bc_seq}">${item.bc_parent_category}/${item.bc_child_category}</option>
                     </c:forEach>
                 </select>
