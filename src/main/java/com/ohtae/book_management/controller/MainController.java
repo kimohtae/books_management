@@ -18,7 +18,7 @@ public class MainController {
         model.addAttribute("dayRank", service.getDayRank());
         model.addAttribute("weekRank", service.getWeekRank());
         model.addAttribute("monthRank", service.getMonthRank());
-        System.out.println(service.getMonthRank());
+        
         return "/index";
     }
     @GetMapping("/admin/book")

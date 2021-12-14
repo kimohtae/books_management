@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.ohtae.book_management.data.AccountsVO;
 import com.ohtae.book_management.data.BookCatVO;
+import com.ohtae.book_management.data.BookInfoHistoryVO;
 import com.ohtae.book_management.data.BookVO;
 import com.ohtae.book_management.data.ImageBookVO;
 import com.ohtae.book_management.mapper.Book_info_mapper;
@@ -63,6 +64,11 @@ public class BookService {
 
     public Map<String,Object> deleteBookList(Integer seq){
         Map<String,Object> map = new LinkedHashMap<String,Object>();
+        BookInfoHistoryVO his = new BookInfoHistoryVO();
+        his.setBih_bi_seq(seq);
+        his.setBih_type("update");
+        Bmapper.insertBookInfoHistory(his);
+        
         map.put("status", true);
         map.put("message", "삭제가 완료 되었습니다.");
         Bmapper.deleteBookList(seq);
@@ -105,10 +111,17 @@ public class BookService {
             map.put("message", "카테고리를 선택해주세요.");
             return map;
         }
-        
         map.put("status", true);
         map.put("message", "추가 되었습니다.");
         Bmapper.insertBookInfo(data);
+
+        BookInfoHistoryVO his = new BookInfoHistoryVO();
+        his.setBih_bi_seq(Bmapper.getLatestBookHistorySeq());
+        his.setBih_type("new");
+        String cont = data.getBi_title() +"|"+ data.getBi_author() +"|"+ data.getBi_price() +"|"+ data.getBi_page() +"|"+ data.getBi_al_seq() +"|"+ data.getBi_ib_seq() +"|"+ data.getBi_bc_seq();
+        his.setBih_content(cont);
+        Bmapper.insertBookInfoHistory(his);
+
         return map;
         
     }
@@ -151,9 +164,17 @@ public class BookService {
             return map;
         }
         
+        BookInfoHistoryVO his = new BookInfoHistoryVO();
+        his.setBih_bi_seq(data.getBi_seq());
+        his.setBih_type("update");
+        String cont = data.getBi_title() +"|"+ data.getBi_author() +"|"+ data.getBi_price() +"|"+ data.getBi_page() +"|"+ data.getBi_al_seq() +"|"+ data.getBi_ib_seq() +"|"+ data.getBi_bc_seq();
+        his.setBih_content(cont);
+        Bmapper.insertBookInfoHistory(his);
+
         map.put("status", true);
         map.put("message", "변경 되었습니다.");
         Bmapper.modifyBookInfo(data);
+
         return map;
         
     }

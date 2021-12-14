@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ohtae.book_management.data.AccountsVO;
 import com.ohtae.book_management.data.BookCatVO;
+import com.ohtae.book_management.data.BookInfoHistoryVO;
 import com.ohtae.book_management.data.BookVO;
 import com.ohtae.book_management.data.ImageBookVO;
 
@@ -14,10 +15,11 @@ public interface Book_info_mapper {
     public List<BookVO> getBookList(Integer offset, String keyword);
     public BookVO getBookBySeq(Integer seq);
     public Integer getBookCounts(String keyword);
-    
+    public Integer getLatestBookHistorySeq();    
 
     public void deleteBookList(Integer seq);
     public void insertBookInfo(BookVO data);
+    public void insertBookInfoHistory(BookInfoHistoryVO data);
     public void modifyBookInfo(BookVO data);
 
     public List<AccountsVO> getAccountList();
