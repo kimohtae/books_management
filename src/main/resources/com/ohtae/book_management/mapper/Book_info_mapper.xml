@@ -16,10 +16,11 @@
         from book_info a join book_cat b on a.bi_bc_seq =b.bc_seq)c 
         join accounts_list d on c.bi_al_seq = d.al_seq)e join images_book f 
         on e.bi_ib_seq = f.ib_seq
+        where bi_title like #{keyword}
         order by bi_seq desc limit 10 offset #{offset}
     </select>
     <select id="getBookCounts" resultType="java.lang.Integer">
-        select count(*) from book_info
+        select count(*) from book_info where bi_title like #{keyword}
     </select>
     <delete id="deleteBookList">
         delete from book_info where bi_seq=#{seq}
@@ -28,6 +29,15 @@
         insert into book_info(bi_title,bi_author,bi_page,bi_price,bi_ib_seq,bi_al_seq,bi_bc_seq)
         values (#{bi_title},#{bi_author},#{bi_page},#{bi_price},#{bi_ib_seq},#{bi_al_seq},#{bi_bc_seq})
     </insert>
+    <update id="modifyBookInfo">
+        update book_info set bi_title=${bi_title},bi_author=${bi_author},bi_page=${bi_page},bi_price=${bi_price},bi_ib_seq=${bi_ib_seq},bi_al_seq=${bi_al_seq},bi_bc_seq=${bi_bc_seq}
+        where bi_seq = ${bi_seq}
+    </update>
+
+
+    <select id="getBookBySeq" resultType="com.ohtae.book_management.data.BookVO">
+        select * from book_info where bi_seq = #{seq}
+    </select>
     
 
 
@@ -41,6 +51,7 @@
     <select id="getCategoryList" resultType="com.ohtae.book_management.data.BookCatVO">
         select bc_seq,bc_parent_category,bc_child_category from book_cat
     </select>
+
 
 
 </mapper>

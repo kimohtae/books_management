@@ -9,58 +9,9 @@
     <%@include file="/WEB-INF/views/includes/header.jsp"%>
     <%@include file="/WEB-INF/views/includes/side_bar.jsp"%>
     <link rel="stylesheet" href="/assets/css/adminBookList.css">
-    <script>
-        $(function(){
-            $("#popup_btn").click(function(){
-                $(".popup_container").addClass("active")
-            })
-            $(".cancel_btn").click(function(){
-                $(".popup_container").removeClass("active")
-            })
-
-            $(".add_btn").click(function(){
-                let data = {
-                    "bi_title":$("#input_title").val(),
-                    "bi_author":$("#input_author").val(),
-                    "bi_page":$("#input_page").val(),
-                    "bi_price":$("#input_price").val(),
-                    "bi_ib_seq":$("#input_image").val(),
-                    "bi_al_seq":$("#input_accounts").val(),
-                    "bi_bc_seq":$("#input_cat").val()
-                }
-                $.ajax({
-                    url:"/bookList/add",
-                    type:"post",
-                    data:JSON.stringify(data),
-                    contentType:"application/json",
-                    success:function(r){
-                        alert(r.message);
-                        if(r.status)
-                            location.reload()
-                    }
-                })
-            })
-
-
-
-            $(".book_delete").click(function(){
-                if(confirm("정말 삭제하시겠습니까?")==false)return;
-                let seq = $(this).attr("book_seq")
-                $.ajax({
-                    url:"/bookList/delete?seq="+seq,
-                    type:"delete",
-                    success:function(r){
-                        alert(r.message)
-                        if(r.status)
-                            location.reload()
-                    }
-                })
-            })
-
-
-        })
-    </script>
+    <script src="/assets/js/adminBookList.js"></script>
     <title>Document</title>
+    
 </head>
 <body>
     
@@ -69,14 +20,18 @@
             <div class="admin_book_wrap">
                 <div class="admin_book_upper">
                     <h1>Book List</h1>
-                    <div>
+                    <div class="search_box_wrap">
+                        <input type="text" id="search_box">
+                        <button id="search_btn">검색</button>
+                    </div>
+                    <div class="book_cnt">
                         <h2>Book Counts</h2>
                         <h2>${data.counts}</h2>
                     </div>
                     <button id="popup_btn">Add Book</button>
                 </div>
                 <table>
-                    <h2> </h2>
+                    
                     <thead>
                         <tr>
                             <th>번호</th>
@@ -120,11 +75,13 @@
                     </tbody>
                 </table>
                 <div class="admin_book_pager">
-                    <p>왼</p>
+                    <button id="prev"><i class="fas fa-chevron-left"></i></button>
                     <c:forEach begin="1" end="${data.pages}" var="i">
-                        <a href="/admin/book?offset=${(i-1)*10}">${i}</a>
+                        <a href="/admin/book?offset=${(i-1)*10}&keyword=${data.keyword}">${i}</a>
                     </c:forEach>
-                    <p>오</p>
+                    <button id="prev"><i class="fas fa-chevron-right"></i></button>
+                   
+
                 </div>
             </div>
         </div>
@@ -134,21 +91,24 @@
         <div class="popup_wrap">
             <div class="popup_top">Add Book</div>
             <div class="popup_mid">
-                <input type="text" id="input_title">
-                <input type="text" id="input_author">
-                <input type="number" id="input_page">
-                <input type="number" id="input_price">
+                <input type="text" id="input_title" placeholder="Title">
+                <input type="text" id="input_author" placeholder="Author">
+                <input type="number" id="input_page" placeholder="Page">
+                <input type="number" id="input_price" placeholder="Price">
                 <select id="input_accounts">
+                    <option value="0">Publisher</option>
                     <c:forEach items="${account}" var="item">
                         <option value="${item.al_seq}">${item.al_name}</option>
                     </c:forEach>
                 </select>
                 <select id="input_image">
+                    <option value="0">Image</option>
                     <c:forEach items="${image}" var="item">
                         <option value="${item.ib_seq}">${item.ib_image}</option>
                     </c:forEach>
                 </select>
                 <select id="input_cat">
+                    <option value="0">Category</option>
                     <c:forEach items="${category}" var="item">
                         <option value="${item.bc_seq}">${item.bc_parent_category}/${item.bc_child_category}</option>
                     </c:forEach>
@@ -156,6 +116,7 @@
             </div>
             <div class="popup_bot">
                 <button class="add_btn">생성</button>
+                <button class="modify_btn">수정</button>
                 <button class="cancel_btn">취소</button>
             </div>
         </div>

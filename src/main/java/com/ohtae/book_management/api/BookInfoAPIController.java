@@ -8,6 +8,8 @@ import com.ohtae.book_management.service.BookService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,5 +28,14 @@ public class BookInfoAPIController {
     @PostMapping("/bookList/add")
     public Map<String,Object> postBookListAdd(@RequestBody BookVO data){
         return service.postBookListAdd(data);
+    }
+    @PatchMapping("/bookList/update")
+    public Map<String,Object> patchBookUpdate(@RequestBody BookVO data){
+        return service.patchBookUpdate(data);
+    }
+
+    @GetMapping("/book/seq")
+    public BookVO getBookBySeq(@RequestParam Integer seq){
+        return service.getBookBySeq(seq);
     }
 }
