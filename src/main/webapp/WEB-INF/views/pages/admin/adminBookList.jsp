@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%@include file="/WEB-INF/views/includes/header.jsp"%>
-    <%@include file="/WEB-INF/views/includes/side_bar.jsp"%>
     <link rel="stylesheet" href="/assets/css/adminBookList.css">
     <script src="/assets/js/adminBookList.js"></script>
     <title>Document</title>
@@ -20,15 +19,11 @@
             <div class="admin_book_wrap">
                 <div class="admin_book_upper">
                     <h1>Book List</h1>
-                    <div class="search_box_wrap">
+                    <div class="tool_box_wrap">
                         <input type="text" id="search_box">
-                        <button id="search_btn">검색</button>
+                        <button id="search_btn"><i class="fas fa-search"></i></button>
+                        <button id="popup_btn">Add Book</button>
                     </div>
-                    <div class="book_cnt">
-                        <h2>Book Counts</h2>
-                        <h2>${data.counts}</h2>
-                    </div>
-                    <button id="popup_btn">Add Book</button>
                 </div>
                 <table id="admin_book_table">
                     <thead>
@@ -76,7 +71,7 @@
                 <div class="admin_book_pager">
                     <button id="prev"><i class="fas fa-chevron-left"></i></button>
                     <c:forEach begin="1" end="${data.pages}" var="i">
-                        <a href="/admin/book?offset=${(i-1)*10}&keyword=${data.keyword}">${i}</a>
+                        <a href="/admin/bookList?offset=${(i-1)*10}&keyword=${data.keyword}">${i}</a>
                     </c:forEach>
                     <button id="prev"><i class="fas fa-chevron-right"></i></button>
                    

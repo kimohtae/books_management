@@ -2,17 +2,18 @@
 let key_seq;
 $(function(){
 
-    
-
     $("#popup_btn").click(function(){
         $(".popup_container").addClass("active")
         $(".modify_btn").css("display","none")
         $(".add_btn").css("display","inline-block")
+        $(".popup_top").html("Add Book")
+
     })
     $(".book_modify").click(function(){
         $(".popup_container").addClass("active")
         $(".modify_btn").css("display","inline-block")
         $(".add_btn").css("display","none")
+        $(".popup_top").html("Modify Book")
         key_seq=$(this).attr("book_seq");
         $.ajax({
             url:"/book/seq?seq="+$(this).attr("book_seq"),
@@ -99,12 +100,12 @@ $(function(){
             }
         })
     })
-    $(".search_box_wrap #search_btn").click(function(){
-        location.href="/admin/book?keyword="+$(".search_box_wrap #search_box").val();
+    $(".tool_box_wrap #search_btn").click(function(){
+        location.href="/admin/bookList?keyword="+$(".tool_box_wrap #search_box").val();
     })
-    $(".admin_book_upper .search_box_wrap").keydown(function(e){
+    $(".admin_book_upper .tool_box_wrap").keydown(function(e){
         if(e.keyCode==13){
-            $(".search_box_wrap #search_btn").trigger("click");
+            $(".tool_box_wrap #search_btn").trigger("click");
         }
     })
 

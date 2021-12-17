@@ -12,7 +12,7 @@
 </head>
 <body>
     <%@include file="/WEB-INF/views/includes/header.jsp"%>
-    <%@include file="/WEB-INF/views/includes/side_bar.jsp"%>
+    
     <main>
         <div class="main_container">
             <div class="main_wrap">

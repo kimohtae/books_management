@@ -21,7 +21,11 @@ public class MainController {
         
         return "/index";
     }
-    @GetMapping("/admin/book")
+    @GetMapping("/admin/page")
+    public String getAdminBookPage(){
+        return"/admin/adminMainPage";
+    }
+    @GetMapping("/admin/bookList")
     public String getAdminBookPage(
         Model model, 
         @RequestParam @Nullable Integer offset,
@@ -31,7 +35,7 @@ public class MainController {
         model.addAttribute("account", service.getAccountList());
         model.addAttribute("image", service.getImageList());
         model.addAttribute("category", service.getCategoryList());
-        return"/adminBookList";
+        return"/admin/adminBookList";
     }
 
 }

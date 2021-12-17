@@ -34,11 +34,13 @@
                 </div>
             </div>
             <div class="upper_mid">
+                <a href="/" id="upper_menu_users">Users</a>
                 <a href="/" id="upper_menu_books">Books</a>
                 <a href="#" id="upper_menu_goods">Goods</a>
                 <a href="#" id="upper_menu_events">Events</a>
                 <a href="#" id="upper_menu_questions">Questions</a>
-                <a href="/admin/book" id="upper_menu_admin">Administation</a>
+                <a href="/admin/bookList" id="upper_menu_bookList">Book List</a>
+                <a href="/admin/page" id="upper_menu_admin">Administation</a>
             </div>
             <div class="upper_right">
                 <a href="#" class="profile"><i class="far fa-user"></i></a>

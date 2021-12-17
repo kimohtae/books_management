@@ -90,5 +90,10 @@
     color: #fff;
     margin: 0 10px;
 }
-
+#upper_menu_users{
+    color: rgba(255, 0, 0, 0.7);
+}
+#upper_menu_admin{
+    color: rgba(255, 0, 0, 0.7);
+}
 
