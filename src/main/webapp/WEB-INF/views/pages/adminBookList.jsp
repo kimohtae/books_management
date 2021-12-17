@@ -30,8 +30,7 @@
                     </div>
                     <button id="popup_btn">Add Book</button>
                 </div>
-                <table>
-                    
+                <table id="admin_book_table">
                     <thead>
                         <tr>
                             <th>번호</th>

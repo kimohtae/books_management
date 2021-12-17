@@ -1,6 +1,9 @@
 
 let key_seq;
 $(function(){
+
+    
+
     $("#popup_btn").click(function(){
         $(".popup_container").addClass("active")
         $(".modify_btn").css("display","none")

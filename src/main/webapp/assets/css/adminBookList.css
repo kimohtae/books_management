@@ -81,6 +81,21 @@
     color: #000;
 }
 
+#admin_book_table{
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: separate; 
+    border-spacing: 0 15px;
+    background-color: #ddd;
+}
+
+
+
+
+
+
+
+
 .admin_book_pager{
     width: 100px;
     margin: 20px auto;

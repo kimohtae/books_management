@@ -47,6 +47,7 @@ public class BookService {
         List<BookVO> list =Bmapper.getBookList(offset,keyword);
         Integer cnt = Bmapper.getBookCounts(keyword);
         Integer pages = cnt/10+(cnt%10>=1 ? 1:0);
+        
         map.put("list", list);
         map.put("counts", cnt);
         map.put("pages", pages);
