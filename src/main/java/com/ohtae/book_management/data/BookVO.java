@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 public class BookVO {
     private Integer bi_seq;
-    private Integer bi_ib_seq;
     private Integer bi_al_seq;
     private Integer bi_bc_seq;
 

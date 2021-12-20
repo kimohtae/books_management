@@ -1,5 +1,6 @@
 package com.ohtae.book_management.controller;
 
+import com.ohtae.book_management.service.AccountService;
 import com.ohtae.book_management.service.BookService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +12,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
-    @Autowired 
-    BookService service;
+    @Autowired BookService Bservice;
+    @Autowired AccountService Aservice;
+
+
     @GetMapping("/")
     public String getMainPage(Model model){
-        model.addAttribute("dayRank", service.getDayRank());
-        model.addAttribute("weekRank", service.getWeekRank());
-        model.addAttribute("monthRank", service.getMonthRank());
+        model.addAttribute("dayRank", Bservice.getDayRank());
+        model.addAttribute("weekRank", Bservice.getWeekRank());
+        model.addAttribute("monthRank", Bservice.getMonthRank());
         
         return "/index";
     }
@@ -31,11 +34,18 @@ public class MainController {
         @RequestParam @Nullable Integer offset,
         @RequestParam @Nullable String keyword
         ){
-        model.addAttribute("data", service.getBookList(offset,keyword));
-        model.addAttribute("account", service.getAccountList());
-        model.addAttribute("image", service.getImageList());
-        model.addAttribute("category", service.getCategoryList());
+        model.addAttribute("data", Bservice.getBookList(offset,keyword));
+        model.addAttribute("category", Bservice.getCategoryList());
         return"/admin/adminBookList";
+    }
+    @GetMapping("/admin/accountList")
+    public String getAdminAccountPage(
+        Model model, 
+        @RequestParam @Nullable Integer offset,
+        @RequestParam @Nullable String keyword
+        ){
+        model.addAttribute("data", Aservice.getAccountList(offset,keyword));
+        return"/admin/adminAccountList";
     }
 
 }

@@ -2,57 +2,26 @@
 
 <mapper namespace="com.ohtae.book_management.mapper.Book_info_mapper">
     <select id="getBookList" resultType="com.ohtae.book_management.data.BookVO">
-        select bi_seq,bi_al_seq,bi_ib_seq,bi_bc_seq,
-        bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt,bi_mod_dt, 
-        bi_catP, bi_catC,bi_acounts,ib_image as bi_image
-        from
-        (select bi_seq,bi_al_seq,bi_ib_seq,bi_bc_seq,
-        bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt,bi_mod_dt, 
+        select bi_seq,bi_al_seq,bi_bc_seq,
+        bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt, 
         bi_catP, bi_catC,al_name as bi_acounts 
         from 
-        (select bi_seq,bi_al_seq,bi_ib_seq,bi_bc_seq,
-        bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt,bi_mod_dt,
+        (select bi_seq,bi_al_seq,bi_bc_seq,
+        bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt,
         bc_parent_category as bi_catP,bc_child_category as bi_catC  
         from book_info a join book_cat b on a.bi_bc_seq =b.bc_seq)c 
-        join accounts_list d on c.bi_al_seq = d.al_seq)e join images_book f 
-        on e.bi_ib_seq = f.ib_seq
+        join account_list d on c.bi_al_seq = d.al_seq
         where bi_title like #{keyword}
-        order by bi_seq desc limit 10 offset #{offset}
+        order by bi_seq desc limit 30 offset #{offset}
+    </select>
+    <select id="getBookBySeq" resultType="com.ohtae.book_management.data.BookVO">
+        select * from book_info where bi_seq = #{seq}
     </select>
     <select id="getBookCounts" resultType="java.lang.Integer">
         select count(*) from book_info where bi_title like #{keyword}
     </select>
-
-    <delete id="deleteBookList">
-        delete from book_info where bi_seq=#{seq}
-    </delete>
-    <insert id="insertBookInfo">
-        insert into book_info(bi_title,bi_author,bi_page,bi_price,bi_ib_seq,bi_al_seq,bi_bc_seq)
-        values (#{bi_title},#{bi_author},#{bi_page},#{bi_price},#{bi_ib_seq},#{bi_al_seq},#{bi_bc_seq})
-    </insert>
-        <insert id="insertBookInfoHistory">
-        insert into book_info_history(bih_type,bih_content,bih_bi_seq)
-        values(#{bih_type},#{bih_content},#{bih_bi_seq})
-    </insert>
-    <update id="modifyBookInfo">
-        update book_info set bi_title=${bi_title},bi_author=${bi_author},bi_page=${bi_page},bi_price=${bi_price},bi_ib_seq=${bi_ib_seq},bi_al_seq=${bi_al_seq},bi_bc_seq=${bi_bc_seq} where bi_seq = ${bi_seq}
-    </update>
-
-
-    <select id="getBookBySeq" resultType="com.ohtae.book_management.data.BookVO">
-        select * from book_info where bi_seq = #{seq}
-    </select>
     <select id="getLatestBookHistorySeq" resultType="java.lang.Integer">
         select bi_seq from book_info order by bi_seq desc limit 1
-    </select>
-
-
-
-    <select id="getAccountList" resultType="com.ohtae.book_management.data.AccountsVO">
-        select al_seq,al_name from accounts_list 
-    </select>
-    <select id="getImageList" resultType="com.ohtae.book_management.data.ImageBookVO">
-        select ib_seq,ib_image from images_book
     </select>
     <select id="getCategoryList" resultType="com.ohtae.book_management.data.BookCatVO">
         select bc_seq,bc_parent_category,bc_child_category from book_cat
@@ -60,7 +29,31 @@
 
 
 
+    <insert id="insertBookInfo">
+        insert into book_info(bi_title,bi_author,bi_page,bi_price,bi_al_seq,bi_bc_seq)
+        values (#{bi_title},#{bi_author},#{bi_page},#{bi_price},#{bi_al_seq},#{bi_bc_seq})
+    </insert>
+    <insert id="insertBookInfoHistory">
+        insert into book_info_history(bih_type,bih_content,bih_bi_seq)
+        values(#{bih_type},#{bih_content},#{bih_bi_seq})
+    </insert>
 
+
+
+
+    <update id="modifyBookInfo">
+        update book_info set 
+        bi_title=#{bi_title},bi_author=#{bi_author},bi_page=#{bi_page},
+        bi_price=#{bi_price},bi_al_seq=#{bi_al_seq},bi_bc_seq=#{bi_bc_seq} 
+        where bi_seq = #{bi_seq}
+    </update>
+
+
+
+
+    <delete id="deleteBookList">
+        delete from book_info where bi_seq=#{seq}
+    </delete>
 </mapper>
 
 

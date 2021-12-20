@@ -17,25 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BookInfoAPIController {
-    @Autowired 
-    BookService service;
+    @Autowired BookService service;
 
-    @DeleteMapping("/bookList/delete")
-    public Map<String,Object> deleteBookListDelete(@RequestParam Integer seq){
-        return service.deleteBookList(seq);
+
+    @GetMapping("/book/bySeq")
+    public BookVO getBookBySeq(@RequestParam Integer seq){
+        return service.getBookBySeq(seq);
     }
 
-    @PostMapping("/bookList/add")
+    @PostMapping("/bookList/insert")
     public Map<String,Object> postBookListAdd(@RequestBody BookVO data){
         return service.postBookListAdd(data);
     }
+
     @PatchMapping("/bookList/update")
     public Map<String,Object> patchBookUpdate(@RequestBody BookVO data){
         return service.patchBookUpdate(data);
     }
 
-    @GetMapping("/book/seq")
-    public BookVO getBookBySeq(@RequestParam Integer seq){
-        return service.getBookBySeq(seq);
+    @DeleteMapping("/bookList/delete")
+    public Map<String,Object> deleteBookListDelete(@RequestParam Integer seq){
+        return service.deleteBookList(seq);
     }
 }

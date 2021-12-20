@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohtae.book_management.mapper.Account_list_mapper">
+    <select id="getAccountList" resultType="com.ohtae.book_management.data.AccountVO">
+        select al_seq,al_name,al_address,al_email,
+        al_phone,al_charge_person,al_reg_dt,al_status 
+        from account_list 
+        where al_name like #{keyword}
+        order by al_seq desc limit 10 offset #{offset}
+    </select>
+    <select id="getAccountBySeq" resultType="com.ohtae.book_management.data.AccountVO">
+        select * from account_list where al_seq = #{seq}
+    </select>
+    <select id="getAccountCounts" resultType="java.lang.Integer">
+        select count(*) from account_list where al_name like #{keyword}
+    </select>
+    <select id="getLatestAccountHistorySeq" resultType="java.lang.Integer">
+        select al_seq from account_list order by al_seq desc limit 1
+    </select>
+    <select id="getAccountNameList" resultType="com.ohtae.book_management.data.AccountVO">
+        select al_seq,al_name from account_list where al_name like #{keyword}
+        order by al_name
+    </select>
+
+
+
+
+    <insert id="insertAccountInfo">
+        insert into account_list(al_name,al_address,al_email,al_phone,al_charge_person)
+        values (#{al_name},#{al_address},#{al_email},#{al_phone},#{al_charge_person})
+    </insert>
+    <insert id="insertAccountInfoHistory">
+        insert into account_list_history(alh_type,alh_content,alh_al_seq)
+        values(#{alh_type},#{alh_content},#{alh_al_seq})
+    </insert>
+
+
+
+
+    <update id="modifyAccountInfo">
+        update account_list set 
+        al_name=#{al_name},al_address=#{al_address},al_email=#{al_email},
+        al_phone=#{al_phone},al_charge_person=#{al_charge_person},al_status=#{al_status}
+        where al_seq = #{al_seq}
+    </update>
+
+
+
+
+    <delete id="deleteAccountList">
+        delete from account_list where al_seq=#{seq}
+    </delete>
+</mapper>
+
+

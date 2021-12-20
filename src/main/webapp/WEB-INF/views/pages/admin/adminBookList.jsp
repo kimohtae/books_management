@@ -32,14 +32,12 @@
                             <th>제목</th>
                             <th>작가</th>
                             <th>출판사</th>
-                            <th>페이지 수</th>
+                            <th>페이지</th>
                             <th>가격</th>
                             <th>종류</th>
                             <th>재고</th>
                             <th>추천</th>
-                            <th>이미지</th>
-                            <th>입력일</th>
-                            <th>변경일</th>
+                            <th>등록일</th>
                             <th>변경</th>
                         </tr>
                     </thead>
@@ -57,9 +55,7 @@
                                 </td>
                                 <td>${item.bi_stock}</td>
                                 <td>${item.bi_like}</td>
-                                <td>${item.bi_image}</td>
                                 <td>${item.bi_reg_dt}</td>
-                                <td>${item.bi_mod_dt}</td>
                                 <td>
                                     <button class="book_modify" book_seq="${item.bi_seq}">수정</button>
                                     <button class="book_delete" book_seq="${item.bi_seq}">삭제</button>
@@ -71,11 +67,9 @@
                 <div class="admin_book_pager">
                     <button id="prev"><i class="fas fa-chevron-left"></i></button>
                     <c:forEach begin="1" end="${data.pages}" var="i">
-                        <a href="/admin/bookList?offset=${(i-1)*10}&keyword=${data.keyword}">${i}</a>
+                        <a href="/admin/bookList?offset=${(i-1)*30}&keyword=${data.keyword}">${i}</a>
                     </c:forEach>
                     <button id="prev"><i class="fas fa-chevron-right"></i></button>
-                   
-
                 </div>
             </div>
         </div>
@@ -89,18 +83,7 @@
                 <input type="text" id="input_author" placeholder="Author">
                 <input type="number" id="input_page" placeholder="Page">
                 <input type="number" id="input_price" placeholder="Price">
-                <select id="input_accounts">
-                    <option value="0">Publisher</option>
-                    <c:forEach items="${account}" var="item">
-                        <option value="${item.al_seq}">${item.al_name}</option>
-                    </c:forEach>
-                </select>
-                <select id="input_image">
-                    <option value="0">Image</option>
-                    <c:forEach items="${image}" var="item">
-                        <option value="${item.ib_seq}">${item.ib_image}</option>
-                    </c:forEach>
-                </select>
+                <p id="input_accounts">Publisher</p>
                 <select id="input_cat">
                     <option value="0">Category</option>
                     <c:forEach items="${category}" var="item">
@@ -114,6 +97,18 @@
                 <button class="cancel_btn">취소</button>
             </div>
         </div>
+    </div>
+    <div class="account_list_wrap">
+        <div class="account_list_top">Select Publisher</div>
+        <div class="account_list_mid">
+            <ul>
+            </ul>
+        </div>
+        <div class="account_list_search">
+            <input type="text" id="account_search_box" placeholder="Publisher">
+            <button id="account_search_btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="account_list_cancel"><i class="fas fa-times"></i></div>
     </div>
 </body>
 </html>
