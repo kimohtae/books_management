@@ -4,7 +4,7 @@
     <select id="getBookList" resultType="com.ohtae.book_management.data.BookVO">
         select bi_seq,bi_al_seq,bi_bc_seq,
         bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt, 
-        bi_catP, bi_catC,al_name as bi_acounts 
+        bi_catP, bi_catC,al_name as bi_account 
         from 
         (select bi_seq,bi_al_seq,bi_bc_seq,
         bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt,
@@ -15,7 +15,10 @@
         order by bi_seq desc limit 30 offset #{offset}
     </select>
     <select id="getBookBySeq" resultType="com.ohtae.book_management.data.BookVO">
-        select * from book_info where bi_seq = #{seq}
+        select bi_seq,bi_al_seq,bi_bc_seq,
+        bi_title,bi_author,bi_page,bi_price,al_name as bi_account
+        from book_info a join account_list b on a.bi_al_seq = b.al_seq
+        where bi_seq = #{seq}
     </select>
     <select id="getBookCounts" resultType="java.lang.Integer">
         select count(*) from book_info where bi_title like #{keyword}

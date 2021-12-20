@@ -22,6 +22,6 @@ public class BookVO {
     private String bi_catP;
     private String bi_catC;
 
-    private String bi_acounts;
+    private String bi_account;
     private String bi_image;
 }

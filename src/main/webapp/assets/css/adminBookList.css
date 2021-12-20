@@ -66,7 +66,6 @@
     color: #ddd;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    
 }
 
 #popup_btn{
@@ -144,9 +143,9 @@
 }
 
 .popup_wrap{
-    position: relative;
     width: 400px;
     height: 330px;
+    position: relative;
     top: 20%;
     margin: auto;
     background-color: #eee;
@@ -182,8 +181,11 @@
     overflow: hidden;
 }
 .popup_mid #input_cat{
+    position: absolute;
+    bottom: 24px;
+    right: 27px;
     width: 144px;
-    height: 24px;
+    height: 25px;
     cursor: pointer;
 }
 .popup_mid #input_accounts:hover{
@@ -210,12 +212,13 @@
 
 .account_list_wrap{
     display: none;
-    position: absolute;
     z-index: 999;
     width: 300px;
     height: 330px;
-    top: 26%;
-    right: 16.5%;
+    position: absolute;
+    left: calc(50% + 200px); 
+    top: calc(50% - 210px);
+    margin: auto;
     background-color: #eee;
     border: 1px solid #333;
     border-radius: 20px;

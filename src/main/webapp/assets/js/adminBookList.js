@@ -15,7 +15,7 @@ $(function(){
             type:"get",
             success:function(r){
                 $(".account_list_mid ul").html("");
-                console.log(r.list)
+                
                 for(let i=0; i<r.list.length;i++){
                     let seq = r.list[i].al_seq;
                     let data = r.list[i].al_name;
@@ -39,15 +39,8 @@ $(function(){
         $(".account_list_wrap").css("display","none")
         $("#account_search_box").val("")
     })
-    $(".account_list_mid ul li").click(function(){
-        alert("sss")
-        let html = $(this.html())
-        console.log(html)
-        $("#input_accounts").html($(this).html())
-        $("#input_accounts").attr("val",$(this).html())
-        $(".account_list_wrap").css("display","none")
-        $("#account_search_box").val("")
-    })
+
+
     $("#account_search_btn").click(function(){
         let keyword = $("#account_search_box").val()
         $.ajax({
@@ -65,8 +58,9 @@ $(function(){
                 $(".account_list_mid ul li").click(function(){
                     let html = $(this).html()
                     let seq = $(this).attr("val")
+
                     $("#input_accounts").html(html)
-                    $("#input_accounts").attr("val")=seq;
+                    $("#input_accounts").attr("val",seq);
                     
                     $(".account_list_wrap").css("display","none")
                     $("#account_search_box").val("")
@@ -89,7 +83,8 @@ $(function(){
                 $("#input_author").val(r.bi_author)
                 $("#input_page").val(r.bi_page)
                 $("#input_price").val(r.bi_price)
-                $("#input_accounts").val(r.bi_al_seq)
+                $("#input_accounts").attr("val",r.bi_al_seq)
+                $("#input_accounts").html(r.bi_account)
                 $("#input_cat").val(r.bi_bc_seq)
             }
         })
@@ -113,7 +108,7 @@ $(function(){
         if(confirm("취소하시겠습니까? \n(내용은 저장되지 않습니다)")==false)return;
         $(".account_list_wrap").css("display","none")
         $("#account_search_box").val("")
-        $("#input_accounts").html("Publisher()")
+        $("#input_accounts").html("Publisher")
         $("#input_accounts").attr("val","")
         $(".popup_container").removeClass("active")
         $("#input_title").val("")
@@ -134,7 +129,6 @@ $(function(){
             "bi_al_seq":$("#input_accounts").attr("val"),
             "bi_bc_seq":$("#input_cat").val()
         }
-        console.log(data)
         $.ajax({
             url:"/bookList/insert",
             type:"post",
@@ -178,6 +172,11 @@ $(function(){
     $(".tool_box_wrap").keydown(function(e){
         if(e.keyCode==13){
             $("#search_btn").trigger("click");
+        }
+    })
+    $("#account_search_box").keydown(function(e){
+        if(e.keyCode==13){
+            $("#account_search_btn").trigger("click");
         }
     })
 

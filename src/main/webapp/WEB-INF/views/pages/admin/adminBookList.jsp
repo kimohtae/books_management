@@ -47,7 +47,7 @@
                                 <td>${item.bi_seq}</td>
                                 <td>${item.bi_title}</td>
                                 <td>${item.bi_author}</td>
-                                <td>${item.bi_acounts}</td>
+                                <td>${item.bi_account}</td>
                                 <td>${item.bi_page}</td>
                                 <td>${item.bi_price}</td>
                                 <td>
