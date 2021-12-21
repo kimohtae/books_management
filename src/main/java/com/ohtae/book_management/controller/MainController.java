@@ -1,6 +1,7 @@
 package com.ohtae.book_management.controller;
 
 import com.ohtae.book_management.service.AccountService;
+import com.ohtae.book_management.service.AdminMainService;
 import com.ohtae.book_management.service.BookService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
     @Autowired BookService Bservice;
     @Autowired AccountService Aservice;
+    @Autowired AdminMainService AMservice;
 
 
     @GetMapping("/")
@@ -25,7 +27,9 @@ public class MainController {
         return "/index";
     }
     @GetMapping("/admin/page")
-    public String getAdminBookPage(){
+    public String getAdminBookMainPage(Model model){
+        model.addAttribute("accountInfo", AMservice.getAccountCnt());
+        model.addAttribute("bookInfo", AMservice.getBookCnt());
         return"/admin/adminMainPage";
     }
     @GetMapping("/admin/bookList")

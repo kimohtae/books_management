@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohtae.book_management.mapper.Admin_main_mapper">
+    <select id="selectAccountTotalCnt" resultType="java.lang.Integer">
+        select count(*) from account_list
+    </select>
+    <select id="selectAccountTradingCnt" resultType="java.lang.Integer">
+        select count(*) from account_list where al_status = 2
+    </select>
+    <select id="selectAccountHaltedCnt" resultType="java.lang.Integer">
+        select count(*) from account_list where al_status = 3
+    </select>
+    <select id="selectAccountContractingCnt" resultType="java.lang.Integer">
+        select count(*) from account_list where al_status = 1
+    </select>
+    <select id="selectAccountRecentUpdate" resultType="java.util.Date">
+        select alh_reg_dt from account_list_history order by alh_reg_dt desc limit 1
+    </select>
+
+
+
+
+    <select id="selectBookTotalCnt" resultType="java.lang.Integer">
+        select count(*) from book_info
+    </select>
+    <select id="selectBookSellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts 
+    </select>
+    <select id="selectBookTodaySellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts 
+        where tlc_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 day) and now()
+    </select>
+    <select id="selectBookWeekSellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts 
+        where tlc_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 Week) and now()
+    </select>
+    <select id="selectBookMonthSellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts 
+        where tlc_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 Month) and now()
+    </select>
+    <select id="selectBookRecentUpdate" resultType="java.util.Date">
+        select bih_reg_dt from book_info_history order by bih_reg_dt desc limit 1
+    </select>
+</mapper>
+
+

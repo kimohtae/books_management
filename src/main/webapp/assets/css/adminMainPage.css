@@ -21,9 +21,44 @@
     display:block;
 }
 
+.accounts_info, .books_info, .goods_info, .member_info{
+    width:  250px;
+    height: 280px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid black;
+    position: absolute;
+    background-color: #fff;
+}
+.accounts_info{
+    left: -1px; top: 10px;
+}
+.books_info{
+    left: 300px; top: 10px;
+}
+.goods_info{
+    left: 600px; top: 10px;
+}
+.member_info{
+    left: 900px; top: 10px;
+}
 
-
-
+.accounts_info h2, .books_info h2, .goods_info h2, .member_info h2{
+    font-size: 24px; text-align: center;
+    font-weight: 600; color: #000; 
+    padding: 0 0 20px 0;
+}
+.accounts_info p, .books_info p, .goods_info p, .member_info p{
+    font-size: 18px; text-align-last: left;
+    font-weight: 400; color: rgb(71, 71, 71);
+    padding: 10px;
+}
+.accounts_info p:last-child, .books_info p:last-child, 
+.goods_info p:last-child, .member_info p:last-child{
+    font-size: 14px; position: absolute; 
+    bottom: 25px; left: 20px;
+    color: rgb(185, 185, 185);
+}
 
 
 
