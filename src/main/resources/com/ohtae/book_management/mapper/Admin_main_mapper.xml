@@ -41,6 +41,31 @@
     <select id="selectBookRecentUpdate" resultType="java.util.Date">
         select bih_reg_dt from book_info_history order by bih_reg_dt desc limit 1
     </select>
+   
+   
+   
+   
+    <select id="selectGoodsTotalCnt" resultType="java.lang.Integer">
+        select count(*) from goods_info
+    </select>
+    <select id="selectGoodsSellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts_goods
+    </select>
+    <select id="selectGoodsTodaySellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts_goods 
+        where tlcg_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 day) and now()
+    </select>
+    <select id="selectGoodsWeekSellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts_goods 
+        where tlcg_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 Week) and now()
+    </select>
+    <select id="selectGoodsMonthSellCnt" resultType="java.lang.Integer">
+        select count(*) from time_log_counts_goods 
+        where tlcg_reg_dt between  DATE_SUB(NOW(), INTERVAL 1 Month) and now()
+    </select>
+    <select id="selectGoodsRecentUpdate" resultType="java.util.Date">
+        select gih_reg_dt from goods_info_history order by gih_reg_dt desc limit 1
+    </select>
 </mapper>
 
 

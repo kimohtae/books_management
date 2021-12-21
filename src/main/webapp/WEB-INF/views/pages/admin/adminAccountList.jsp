@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -53,7 +54,7 @@
                                     <c:if test="${item.al_status==2}">정상</c:if>
                                     <c:if test="${item.al_status==3}">중단</c:if>
                                 </td>
-                                <td>${item.al_reg_dt}</td>
+                                <td><fmt:formatDate value="${item.al_reg_dt}" pattern="yyyy-MM-dd (EE) HH:mm:ss"/></td>
                                 <td>
                                     <button class="Account_modify" Account_seq="${item.al_seq}">수정</button>
                                     <button class="Account_delete" Account_seq="${item.al_seq}">삭제</button>

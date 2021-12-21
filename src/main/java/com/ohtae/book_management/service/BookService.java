@@ -44,7 +44,7 @@ public class BookService {
         }
         List<BookVO> list =Bmapper.getBookList(offset,keyword);
         Integer cnt = Bmapper.getBookCounts(keyword);
-        Integer pages = cnt/30+(cnt%30>=1 ? 1:0);
+        Integer pages = cnt/20+(cnt%20>=1 ? 1:0);
         
         map.put("list", list);
         map.put("counts", cnt);
@@ -86,12 +86,12 @@ public class BookService {
             map.put("message", "페이지 수를 입력해주세요.");
             return map;
         }
-        if(data.getBi_al_seq()==0){
+        if(data.getBi_al_seq()==0 || data.getBi_al_seq()==null){
             map.put("status", false);
             map.put("message", "출판사를 선택해주세요.");
             return map;
         }
-        if(data.getBi_bc_seq()==0){
+        if(data.getBi_bc_seq()==0 || data.getBi_bc_seq()==null){
             map.put("status", false);
             map.put("message", "카테고리를 선택해주세요.");
             return map;
@@ -102,7 +102,7 @@ public class BookService {
 
         BookInfoHistoryVO his = new BookInfoHistoryVO();
         his.setBih_bi_seq(Bmapper.getLatestBookHistorySeq());
-        his.setBih_type("new");
+        his.setBih_type("New");
         String cont = data.getBi_title() +"|"+ data.getBi_author() +"|"+ data.getBi_price() +"|"+ data.getBi_page() +"|"+ data.getBi_al_seq() +"|"+ data.getBi_bc_seq();
         his.setBih_content(cont);
         Bmapper.insertBookInfoHistory(his);
@@ -131,12 +131,12 @@ public class BookService {
             map.put("message", "페이지 수를 입력해주세요.");
             return map;
         }
-        if(data.getBi_al_seq()==0){
+        if(data.getBi_al_seq()==0 || data.getBi_al_seq()==null){
             map.put("status", false);
             map.put("message", "출판사를 선택해주세요.");
             return map;
         }
-        if(data.getBi_bc_seq()==0){
+        if(data.getBi_bc_seq()==0 || data.getBi_bc_seq()==null){
             map.put("status", false);
             map.put("message", "카테고리를 선택해주세요.");
             return map;
@@ -144,7 +144,7 @@ public class BookService {
         
         BookInfoHistoryVO his = new BookInfoHistoryVO();
         his.setBih_bi_seq(data.getBi_seq());
-        his.setBih_type("update");
+        his.setBih_type("Update");
         String cont = data.getBi_title() +"|"+ data.getBi_author() +"|"+ data.getBi_price() +"|"+ data.getBi_page() +"|"+ data.getBi_al_seq() +"|"+  data.getBi_bc_seq();
         his.setBih_content(cont);
         Bmapper.insertBookInfoHistory(his);
@@ -163,7 +163,7 @@ public class BookService {
         Map<String,Object> map = new LinkedHashMap<String,Object>();
         BookInfoHistoryVO his = new BookInfoHistoryVO();
         his.setBih_bi_seq(seq);
-        his.setBih_type("delete");
+        his.setBih_type("Delete");
         Bmapper.insertBookInfoHistory(his);
         
         map.put("status", true);

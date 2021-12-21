@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohtae.book_management.mapper.Goods_info_mapper">
+    <select id="getGoodsList" resultType="com.ohtae.book_management.data.GoodsVO">
+        select 
+            gi_seq,gi_al_seq,gi_name,gi_price,gi_reg_dt,gi_gc_seq,
+            gi_catP,gi_catC,gi_account, 
+            sum(f.tlcg_sell_count) as gi_sell, sum(f.tlcg_like_count) as gi_like,
+            sum(f.tlcg_stock_count) as gi_stock     
+        from
+            (select gi_seq,gi_al_seq,gi_name,gi_price,gi_reg_dt,gi_gc_seq,
+            gi_catP,gi_catC,al_name as gi_account 
+        from 
+            (select gi_seq,gi_al_seq,gi_name,gi_price,gi_reg_dt,gi_gc_seq,
+            gc_parent_category as gi_catP,gc_child_category as gi_catC  
+            from goods_info a join goods_cat b on a.gi_gc_seq =b.gc_seq)c 
+        left outer join account_list d 
+            on c.gi_al_seq = d.al_seq)e 
+        left outer join time_log_counts_goods f 
+            on e.gi_seq = f.tlcg_gi_seq 
+        where gi_name like #{keyword}
+        group by gi_seq 
+        order by gi_seq desc limit 20 offset #{offset}
+    </select>
+    <select id="getGoodsBySeq" resultType="com.ohtae.book_management.data.GoodsVO">
+        select 
+            gi_seq,gi_al_seq,gi_name,gi_price,gi_reg_dt,
+            gi_gc_seq,al_name as gi_account
+        from goods_info a join account_list b on a.gi_al_seq = b.al_seq
+        where gi_seq = #{seq}
+    </select>
+    <select id="getGoodsCounts" resultType="java.lang.Integer">
+        select count(*) from goods_info where gi_name like #{keyword}
+    </select>
+    <select id="getLatestGoodsHistorySeq" resultType="java.lang.Integer">
+        select gi_seq from goods_info order by gi_seq desc limit 1
+    </select>
+    <select id="getCategoryList" resultType="com.ohtae.book_management.data.GoodsCatVO">
+        select gc_seq,gc_parent_category,gc_child_category from goods_cat
+    </select>
+
+
+
+    <insert id="insertGoodsInfo">
+        insert into goods_info(gi_al_seq,gi_name,gi_price,gi_gc_seq)
+        values (#{gi_al_seq},#{gi_name},#{gi_price},#{gi_gc_seq})
+    </insert>
+    <insert id="insertGoodsInfoHistory">
+        insert into goods_info_history(gih_type,gih_content,gih_gi_seq)
+        values(#{gih_type},#{gih_content},#{gih_gi_seq})
+    </insert>
+
+
+
+
+    <update id="modifyGoodsInfo">
+        update goods_info set 
+        gi_al_seq=#{gi_al_seq},gi_name=#{gi_name},gi_price=#{gi_price},gi_gc_seq=#{gi_gc_seq}
+        where gi_seq = #{gi_seq}
+    </update>
+
+
+
+
+    <delete id="deleteGoodsList">
+        delete from goods_info where gi_seq=#{seq}
+    </delete>
+</mapper>
+
+

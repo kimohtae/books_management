@@ -1,6 +1,6 @@
-/* adminBookList.css */
+/* adminGoodsList.css */
 
-.admin_book_container{
+.admin_goods_container{
     position: fixed;
     top: 60px;
     overflow-y: scroll;
@@ -8,7 +8,7 @@
     z-index: -1;
     
 }
-.admin_book_wrap{
+.admin_goods_wrap{
     display: block;
     position: relative; 
     border: 2px solid #777;
@@ -20,7 +20,7 @@
     border-radius: 15px;
     display:block;
 }
-.admin_book_upper{
+.admin_goods_upper{
     padding: 10px;
     width: 1055px;
     margin: auto;
@@ -31,7 +31,7 @@
     background-color: #222;
 
 }
-.admin_book_upper > h1{
+.admin_goods_upper > h1{
     display: inline-block;
     font-size: 30px;
     margin: 20px 20px 20px 20px;
@@ -80,7 +80,7 @@
 }
 
 
-#admin_book_table{
+#admin_goods_table{
     width: 95%;
     position: relative;
     top: -20px;
@@ -94,35 +94,35 @@
     background-color: #222;
     border-radius: 15px;
 }
-#admin_book_table th{
+#admin_goods_table th{
     text-align: center;
     font-size: 20px;
     color: #fff; margin: 10px;
     padding-bottom: 20px;
     border-bottom: 1px solid #fff;
 }
-#admin_book_table td{
+#admin_goods_table td{
     text-align: center;
     color: #fff; margin: 10px;
 }
-#admin_book_table .book_modify{background-color: #eee; cursor: pointer;}
-#admin_book_table .book_delete{background-color: #eee; cursor: pointer;}
-#admin_book_table .book_modify:hover{background-color: #ddd;}
-#admin_book_table .book_delete:hover{background-color: #ddd;}
+#admin_goods_table .goods_modify{background-color: #eee; cursor: pointer;}
+#admin_goods_table .goods_delete{background-color: #eee; cursor: pointer;}
+#admin_goods_table .goods_modify:hover{background-color: #ddd;}
+#admin_goods_table .goods_delete:hover{background-color: #ddd;}
 
 
 
 
 
-.admin_book_pager{
+.admin_goods_pager{
     width: 100px;
     margin: 20px auto;
     position: relative;
 }
-.admin_book_pager > button{
+.admin_goods_pager > button{
     display: inline-block;
 }
-.admin_book_pager a{
+.admin_goods_pager a{
     display: inline-block;
 }
 
@@ -155,13 +155,14 @@
 .popup_top{
     text-align: center;
     padding: 30px;
+    padding-bottom: 50px;
     font-size: 28px;
     font-weight: 800;
 }
 .popup_mid{
     left: 45px;
     position: relative;
-    width: 83%;height: 55%;
+    width: 83%;height: 37%;
 }
 .popup_mid input, .popup_mid p{
     display: inline-block;
@@ -182,7 +183,7 @@
 }
 .popup_mid #input_cat{
     position: absolute;
-    bottom: 24px;
+    bottom: 31px;
     right: 27px;
     width: 144px;
     height: 25px;

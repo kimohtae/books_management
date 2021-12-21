@@ -10,5 +10,6 @@ public class TimeLogCountsVO {
     private Integer tlc_bi_seq;
     private Integer tlc_sell_count;
     private Integer tlc_like_count;
+    private Integer tlc_stock_count;
     private Date tlc_reg_dt;
 }

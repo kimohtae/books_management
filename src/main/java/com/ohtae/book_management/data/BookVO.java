@@ -14,14 +14,15 @@ public class BookVO {
     private String bi_author;
     private Integer bi_page;
     private Integer bi_price;
-    private Integer bi_stock;
-    private Integer bi_like;
     private Date bi_reg_dt;
     private Date bi_mod_dt;
-
+    
     private String bi_catP;
     private String bi_catC;
-
+    
+    private Integer bi_sell;
+    private Integer bi_stock;
+    private Integer bi_like;
+    
     private String bi_account;
-    private String bi_image;
 }

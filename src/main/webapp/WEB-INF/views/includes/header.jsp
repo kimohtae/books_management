@@ -40,6 +40,7 @@
                 <a href="#" id="upper_menu_events">Events</a>
                 <a href="#" id="upper_menu_questions">Questions</a>
                 <a href="/admin/bookList" id="upper_menu_bookList">Book List</a>
+                <a href="/admin/goodsList" id="upper_menu_goodsList">Goods List</a>
                 <a href="/admin/accountList" id="upper_menu_accountList">Account List</a>
                 <a href="/admin/page" id="upper_menu_admin">Administation</a>
             </div>

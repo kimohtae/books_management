@@ -2,17 +2,27 @@
 
 <mapper namespace="com.ohtae.book_management.mapper.Book_info_mapper">
     <select id="getBookList" resultType="com.ohtae.book_management.data.BookVO">
-        select bi_seq,bi_al_seq,bi_bc_seq,
-        bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt, 
-        bi_catP, bi_catC,al_name as bi_account 
+        select 
+            distinct(bi_seq),bi_al_seq,bi_bc_seq,bi_title,bi_author,
+            bi_page,bi_price,bi_reg_dt, bi_catP, bi_catC, bi_account, 
+            sum(f.tlc_sell_count) as bi_sell, sum(f.tlc_like_count) as bi_like,
+            sum(f.tlc_stock_count) as bi_stock     
+        from
+            (select bi_seq,bi_al_seq,bi_bc_seq,
+            bi_title,bi_author,bi_page,bi_price,bi_reg_dt, 
+            bi_catP, bi_catC,al_name as bi_account 
         from 
-        (select bi_seq,bi_al_seq,bi_bc_seq,
-        bi_title,bi_author,bi_page,bi_price,bi_stock,bi_like,bi_reg_dt,
-        bc_parent_category as bi_catP,bc_child_category as bi_catC  
-        from book_info a join book_cat b on a.bi_bc_seq =b.bc_seq)c 
-        join account_list d on c.bi_al_seq = d.al_seq
+            (select bi_seq,bi_al_seq,bi_bc_seq,
+            bi_title,bi_author,bi_page,bi_price,bi_reg_dt,
+            bc_parent_category as bi_catP,bc_child_category as bi_catC  
+            from book_info a join book_cat b on a.bi_bc_seq =b.bc_seq)c 
+        left outer join account_list d 
+            on c.bi_al_seq = d.al_seq)e 
+        left outer join time_log_counts f 
+            on e.bi_seq = f.tlc_bi_seq 
         where bi_title like #{keyword}
-        order by bi_seq desc limit 30 offset #{offset}
+        group by bi_seq 
+        order by bi_seq desc limit 20 offset #{offset}
     </select>
     <select id="getBookBySeq" resultType="com.ohtae.book_management.data.BookVO">
         select bi_seq,bi_al_seq,bi_bc_seq,

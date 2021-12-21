@@ -3,6 +3,7 @@ package com.ohtae.book_management.controller;
 import com.ohtae.book_management.service.AccountService;
 import com.ohtae.book_management.service.AdminMainService;
 import com.ohtae.book_management.service.BookService;
+import com.ohtae.book_management.service.GoodsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
     @Autowired BookService Bservice;
+    @Autowired GoodsService Gservice;
     @Autowired AccountService Aservice;
     @Autowired AdminMainService AMservice;
 
@@ -30,6 +32,7 @@ public class MainController {
     public String getAdminBookMainPage(Model model){
         model.addAttribute("accountInfo", AMservice.getAccountCnt());
         model.addAttribute("bookInfo", AMservice.getBookCnt());
+        model.addAttribute("goodsInfo", AMservice.getGoodsCnt());
         return"/admin/adminMainPage";
     }
     @GetMapping("/admin/bookList")
@@ -41,6 +44,16 @@ public class MainController {
         model.addAttribute("data", Bservice.getBookList(offset,keyword));
         model.addAttribute("category", Bservice.getCategoryList());
         return"/admin/adminBookList";
+    }
+    @GetMapping("/admin/goodsList")
+    public String getAdminGoodsPage(
+        Model model, 
+        @RequestParam @Nullable Integer offset,
+        @RequestParam @Nullable String keyword
+        ){
+        model.addAttribute("data", Gservice.getGoodsList(offset,keyword));
+        model.addAttribute("category", Gservice.getCategoryList());
+        return"/admin/adminGoodsList";
     }
     @GetMapping("/admin/accountList")
     public String getAdminAccountPage(

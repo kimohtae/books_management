@@ -70,6 +70,9 @@
 #upper_menu_bookList{
     display: inline-block;
 }
+#upper_menu_goodsList{
+    display: inline-block;
+}
 #upper_menu_books{
     display: none;
 }

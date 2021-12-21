@@ -19,4 +19,12 @@ public interface Admin_main_mapper {
     public Integer selectBookWeekSellCnt();
     public Integer selectBookMonthSellCnt();
     public Date selectBookRecentUpdate();
+
+
+    public Integer selectGoodsTotalCnt();
+    public Integer selectGoodsSellCnt();
+    public Integer selectGoodsTodaySellCnt();
+    public Integer selectGoodsWeekSellCnt();
+    public Integer selectGoodsMonthSellCnt();
+    public Date selectGoodsRecentUpdate();
 }

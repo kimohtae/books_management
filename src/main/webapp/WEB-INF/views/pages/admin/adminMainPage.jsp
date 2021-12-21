@@ -34,16 +34,16 @@
                     <p>일간 판매건수: ${bookInfo.today} </p>
                     <p>주간 판매건수: ${bookInfo.week} </p>
                     <p>월간 판매건수: ${bookInfo.month} </p>
-                    <p>업데이트 날짜:<fmt:formatDate value="${bookInfo.update}" pattern="yyyy년 MM월 dd일 (EE) HH:mm:ss"/> </p>
+                    <p>업데이트 날짜: <fmt:formatDate value="${bookInfo.update}" pattern="yyyy년 MM월 dd일 (EE) HH:mm:ss"/> </p>
                 </div>
                 <div class="goods_info">
                     <h2>Goods Info</h2>
-                    <p>총 재고량: </p>
-                    <p>총 판매건수: </p>
-                    <p>일간 판매건수: </p>
-                    <p>주간 판매건수: </p>
-                    <p>월간 판매건수: </p>
-                    <p>업데이트 날짜: </p>
+                    <p>총 재고량: ${goodsInfo.total} </p>
+                    <p>총 판매건수: ${goodsInfo.sell} </p>
+                    <p>일간 판매건수: ${goodsInfo.today} </p>
+                    <p>주간 판매건수: ${goodsInfo.week} </p>
+                    <p>월간 판매건수: ${goodsInfo.month} </p>
+                    <p>업데이트 날짜: <fmt:formatDate value="${goodsInfo.update}" pattern="yyyy년 MM월 dd일 (EE) HH:mm:ss"/>  </p>
                 </div>
                 <div class="member_info">
                     <h2>Member Info</h2>

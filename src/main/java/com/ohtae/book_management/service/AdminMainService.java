@@ -32,4 +32,15 @@ public class AdminMainService {
             resultMap.put("update",Amapper.selectBookRecentUpdate());
         return resultMap;
     }
+
+    public Map<String,Object> getGoodsCnt(){
+        Map<String, Object> resultMap = new LinkedHashMap<String,Object>();
+            resultMap.put("total", Amapper.selectGoodsTotalCnt());
+            resultMap.put("sell", Amapper.selectGoodsSellCnt());
+            resultMap.put("today", Amapper.selectGoodsTodaySellCnt());
+            resultMap.put("week", Amapper.selectGoodsWeekSellCnt());
+            resultMap.put("month", Amapper.selectGoodsMonthSellCnt());
+            resultMap.put("update",Amapper.selectGoodsRecentUpdate());
+        return resultMap;
+    }
 }
