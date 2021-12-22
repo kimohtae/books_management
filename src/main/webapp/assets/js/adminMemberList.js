@@ -82,7 +82,7 @@ $(function(){
             success:function(r){
                 alert(r.message);
                 if(r.status)
-                    location.reload()
+                    location.href="/admin/memberList"
             }
         })
     })
