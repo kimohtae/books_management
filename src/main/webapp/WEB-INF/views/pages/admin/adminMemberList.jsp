@@ -57,7 +57,7 @@
                                 <td>
                                         <c:if test="${item.mi_status==1}"><span style="color: rgb(63, 131, 63);">신규</span></c:if>
                                         <c:if test="${item.mi_status==2}"><span style="color: rgb(106, 106, 253);">정상</span></c:if>
-                                        <c:if test="${item.mi_status==3}"><span style="color: gray;">휴먼</span></c:if>
+                                        <c:if test="${item.mi_status==3}"><span style="color: gray;">휴면</span></c:if>
                                         <c:if test="${item.mi_status==4}"><span style="color: rgb(252, 124, 124);">정지</span></c:if>
                                     /
                                         <c:if test="${item.mi_grade==1}"><span style="color: rgb(63, 131, 63);">일반</span></c:if>
@@ -98,7 +98,7 @@
                     <option value="0">Status</option>
                     <option value="1" >신규</option>
                     <option value="2" >정상</option>
-                    <option value="3" >휴먼</option>
+                    <option value="3" >휴면</option>
                     <option value="4" >정지</option>
                 </select>
                 <select id="input_grade">
@@ -123,7 +123,7 @@
             <select id="mod_status">
                 <option value="1" >신규</option>
                 <option value="2" >정상</option>
-                <option value="3" >휴먼</option>
+                <option value="3" >휴면</option>
                 <option value="4" >정지</option>
             </select>
             <button id="status_mod_btn">적용</button>

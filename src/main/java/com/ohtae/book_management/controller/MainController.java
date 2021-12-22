@@ -35,6 +35,7 @@ public class MainController {
         model.addAttribute("accountInfo", AMservice.getAccountCnt());
         model.addAttribute("bookInfo", AMservice.getBookCnt());
         model.addAttribute("goodsInfo", AMservice.getGoodsCnt());
+        model.addAttribute("memberInfo", AMservice.getMemberCnt());
         return"/admin/adminMainPage";
     }
     @GetMapping("/admin/bookList")

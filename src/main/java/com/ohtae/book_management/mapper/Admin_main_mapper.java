@@ -27,4 +27,13 @@ public interface Admin_main_mapper {
     public Integer selectGoodsWeekSellCnt();
     public Integer selectGoodsMonthSellCnt();
     public Date selectGoodsRecentUpdate();
+
+
+
+    public Integer selectMemberTotalCnt();
+    public Integer selectMemberNormalCnt();
+    public Integer selectMemberNewCnt();
+    public Integer selectMemberDormantCnt();
+    public Integer selectMemberHaltedCnt();
+    public Date selectMemberRecentUpdate();
 }

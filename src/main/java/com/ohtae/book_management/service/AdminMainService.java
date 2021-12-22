@@ -43,4 +43,15 @@ public class AdminMainService {
             resultMap.put("update",Amapper.selectGoodsRecentUpdate());
         return resultMap;
     }
+
+    public Map<String,Object> getMemberCnt(){
+        Map<String, Object> resultMap = new LinkedHashMap<String,Object>();
+            resultMap.put("total", Amapper.selectMemberTotalCnt());
+            resultMap.put("normal", Amapper.selectMemberNormalCnt());
+            resultMap.put("newm", Amapper.selectMemberNewCnt());
+            resultMap.put("dormant", Amapper.selectMemberDormantCnt());
+            resultMap.put("halted", Amapper.selectMemberHaltedCnt());
+            resultMap.put("update",Amapper.selectMemberRecentUpdate());
+        return resultMap;
+    }
 }

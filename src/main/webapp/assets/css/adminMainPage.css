@@ -55,8 +55,8 @@
 }
 .accounts_info p:last-child, .books_info p:last-child, 
 .goods_info p:last-child, .member_info p:last-child{
-    font-size: 14px; position: absolute; 
-    bottom: 25px; left: 20px;
+    font-size: 12px; position: absolute; 
+    bottom: 25px; left: 14px;
     color: rgb(185, 185, 185);
 }
 

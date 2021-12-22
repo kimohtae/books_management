@@ -66,6 +66,28 @@
     <select id="selectGoodsRecentUpdate" resultType="java.util.Date">
         select gih_reg_dt from goods_info_history order by gih_reg_dt desc limit 1
     </select>
+
+
+
+
+    <select id="selectMemberTotalCnt" resultType="java.lang.Integer">
+        select count(*) from member_info
+    </select>
+    <select id="selectMemberNormalCnt" resultType="java.lang.Integer">
+        select count(*) from member_info where mi_status = 2
+    </select>
+    <select id="selectMemberNewCnt" resultType="java.lang.Integer">
+        select count(*) from member_info where mi_status = 1
+    </select>
+    <select id="selectMemberDormantCnt" resultType="java.lang.Integer">
+        select count(*) from member_info where mi_status = 3
+    </select>
+    <select id="selectMemberHaltedCnt" resultType="java.lang.Integer">
+        select count(*) from member_info where mi_status = 4
+    </select>
+    <select id="selectMemberRecentUpdate" resultType="java.util.Date">
+        select mih_reg_dt from member_info_history order by mih_reg_dt desc limit 1
+    </select>
 </mapper>
 
 

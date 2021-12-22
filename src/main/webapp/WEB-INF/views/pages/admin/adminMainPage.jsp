@@ -47,11 +47,12 @@
                 </div>
                 <div class="member_info">
                     <h2>Member Info</h2>
-                    <p>총 회원 수: </p>
-                    <p>정상 회원 수: </p>
-                    <p>신규 회원 수: </p>
-                    <p>휴먼 회원 수: </p>
-                    <p>업데이트 날짜: </p>
+                    <p>총 회원 수: ${memberInfo.total} </p>
+                    <p>정상 회원 수: ${memberInfo.normal} </p>
+                    <p>신규 회원 수: ${memberInfo.newm} </p>
+                    <p>휴면 회원 수: ${memberInfo.dormant} </p>
+                    <p>정지 회원 수: ${memberInfo.halted} </p>
+                    <p>업데이트 날짜: <fmt:formatDate value="${memberInfo.update}" pattern="yyyy년 MM월 dd일 (EE) HH:mm:ss"/> </p>
                 </div>
             </div>
         </div>
