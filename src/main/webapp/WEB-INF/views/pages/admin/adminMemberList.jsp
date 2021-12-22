@@ -46,7 +46,7 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${data.list}" var="item">
-                            <tr tr-seq="${item.mi_seq}" id="${item.mi_seq}">
+                            <tr tr-seq="${item.mi_seq}" id="${item.mi_seq}" grade_check="${item.mi_grade}">
                                 <td>${item.mi_seq}</td>
                                 <td>${item.mi_name}</td>
                                 <td>${item.mi_id}</td>

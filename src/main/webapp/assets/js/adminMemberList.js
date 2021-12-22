@@ -102,6 +102,12 @@ $(function(){
     $("#grade_mod_btn").click(function(){
         if(!confirm("등급을 변경하시겠습니까?"))return;
         for (var seq of selected){
+            if($("#"+seq).attr("grade_check")==9999){
+                selected.delete(seq)
+                alert("관리자 등급은 변경하실 수 없습니다.")
+            }
+        }
+        for (var seq of selected){
             $.ajax({
                 url:"/member/update/grade?seq="+seq+"&grade="+$("#mod_grade").val(),
                 type:"patch",
