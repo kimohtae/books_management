@@ -1,6 +1,6 @@
-/* adminGoodsList.css */
+/* adminMemberList.css */
 
-.admin_goods_container{
+.admin_member_container{
     position: fixed;
     top: 60px;
     overflow-y: scroll;
@@ -8,7 +8,7 @@
     z-index: -1;
     
 }
-.admin_goods_wrap{
+.admin_member_wrap{
     display: block;
     position: relative; 
     border: 2px solid #777;
@@ -20,7 +20,7 @@
     border-radius: 15px;
     display:block;
 }
-.admin_goods_upper{
+.admin_member_upper{
     padding: 10px;
     width: 1055px;
     margin: auto;
@@ -31,7 +31,7 @@
     background-color: #222;
 
 }
-.admin_goods_upper > h1{
+.admin_member_upper > h1{
     display: inline-block;
     font-size: 30px;
     margin: 20px 20px 20px 20px;
@@ -48,6 +48,17 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+.tool_box_wrap #search_sel{
+    position: absolute;
+    right: 60px; top: 21px;
+    width: 60px; height: 22px; 
+    background-color: transparent;
+    color: #fff;
+}
+.tool_box_wrap #search_sel{
+    background-color: #111;
+}
+
 .tool_box_wrap #search_btn{
     width: 30px;
     background-color: #111;
@@ -80,7 +91,7 @@
 }
 
 
-#admin_goods_table{
+#admin_member_table{
     width: 95%;
     position: relative;
     top: -20px;
@@ -94,35 +105,39 @@
     background-color: #222;
     border-radius: 15px;
 }
-#admin_goods_table th{
+#admin_member_table th{
     text-align: center;
     font-size: 20px;
     color: #fff; margin: 10px;
     padding-bottom: 20px;
     border-bottom: 1px solid #fff;
 }
-#admin_goods_table td{
+#admin_member_table td{
     text-align: center;
+    vertical-align: middle;
     color: #fff; margin: 10px;
 }
-#admin_goods_table .goods_modify{background-color: #eee; cursor: pointer;}
-#admin_goods_table .goods_delete{background-color: #eee; cursor: pointer;}
-#admin_goods_table .goods_modify:hover{background-color: #ddd;}
-#admin_goods_table .goods_delete:hover{background-color: #ddd;}
+#admin_member_table tbody tr:hover{
+    background-color: #333;
+    cursor: pointer;
+}
+#admin_member_table tbody tr.active{
+    background-color: #444;
+}
 
 
 
 
 
-.admin_goods_pager{
+.admin_member_pager{
     width: 100px;
     margin: 20px auto;
     position: relative;
 }
-.admin_goods_pager > button{
+.admin_member_pager > button{
     display: inline-block;
 }
-.admin_goods_pager a{
+.admin_member_pager a{
     display: inline-block;
 }
 
@@ -144,7 +159,7 @@
 
 .popup_wrap{
     width: 400px;
-    height: 330px;
+    height: 440px;
     position: relative;
     top: 20%;
     margin: auto;
@@ -155,18 +170,17 @@
 .popup_top{
     text-align: center;
     padding: 30px;
-    padding-bottom: 50px;
     font-size: 28px;
     font-weight: 800;
 }
 .popup_mid{
     left: 45px;
     position: relative;
-    width: 83%;height: 37%;
+    width: 83%;height: 55%;
 }
 .popup_mid input, .popup_mid p{
-    padding-bottom: 4px;
     display: inline-block;
+    padding-bottom: 4px;
     width: 88%;
     margin: auto;
     padding-left: 10px;
@@ -182,22 +196,19 @@
     cursor: pointer;
     overflow: hidden;
 }
-.popup_mid #input_cat{
-    position: absolute;
-    bottom: 25px;
-    right: 27px;
-    width: 144px;
-    height: 25px;
-    cursor: pointer;
+.popup_mid #input_pwd, .popup_mid #input_pwd_con{
+    width: 137px;
 }
-.popup_mid #input_accounts:hover{
-    background-color: #ddd;
+.popup_mid #input_status,.popup_mid #input_grade{
+    width: 151px; height: 25px;
 }
+
+
 
 .popup_bot{
     display: block;
     position: relative;
-    top: 0; width: auto;
+    top: 48px; width: auto;
     margin: auto;
     text-align: center;
 }   
@@ -212,76 +223,88 @@
     background-color: #ddd;
 }
 
-.account_list_wrap{
-    display: none;
-    z-index: 999;
-    width: 300px;
-    height: 330px;
-    position: absolute;
-    left: calc(50% + 200px); 
-    top: calc(50% - 210px);
-    margin: auto;
-    background-color: #eee;
-    border: 1px solid #333;
-    border-radius: 20px;
+.mod_del_box{
+    width: 160px; height: 180px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #222;
+    position: fixed;
+    left: calc(50% + 530px);
+    top: 38%;
 }
-.account_list_top{
+.mod_del_box .mod_box_status{
+    display: block;
     text-align: center;
-    padding: 20px;
-    font-size: 24px;
-    font-weight: 800;
-}
-.account_list_mid{
-    position: relative;
-    top: 35px;
     padding: 5px;
-    margin: auto;
-    width: 83%; height: 62%;
-    border: 1px solid #aaa;
-    border-radius: 10px;
-    overflow-y: scroll;
+    margin: 10px;
 }
-.account_list_mid li{
-padding: 10px;
-margin: 5px;
-border-bottom:1px solid #ccc;
-border-radius: 5px;
-font-size: 16px;
-font-weight: 400;
-cursor: pointer;
+.mod_del_box #mod_status{
+    width: 70px; height: 30px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
-.account_list_mid li:hover{
-background-color: #bbb;
+.mod_del_box #mod_status option{
+    background-color: #222;
+    color: #fff;
 }
-.account_list_search{
-    position: absolute;
-    top: 62px; left: 20px;
-    width: 85%; padding: 1px;
-    border: 1px solid #000;
-    border-radius: 10px;
+.mod_del_box #status_mod_btn{
+    width: 40px; height: 30px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
 }
-.account_list_search input{
-    border: none;
-    padding-left: 5px;
-    width: 206px;
-    margin-left: 9px;
-    margin-top: 3px;
+.mod_del_box .mod_box_grade{
+    display: block;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+}
+.mod_del_box #mod_grade{
+    width: 70px; height: 30px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.mod_del_box #mod_grade option{
+    background-color: #222;
+    color: #fff;
+}
+.mod_del_box #grade_mod_btn{
+    width: 40px; height: 30px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.mod_del_box #delete_btn{
+    margin-left: 24px;
+    margin-top: 22px;
+    width: 70px; height: 30px;
+    font-size: 15px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#mdb_cancel_btn{
     background-color: transparent;
-}
-.account_list_search button{
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
-    top: -0.4px;
-}
-.account_list_cancel{
+    color: #fff;
     position: absolute;
-    font-size: 14px;
-    color: rgba(128, 128, 128, 0.493);
-    top: 10px;
-    right: 13px;
+    right: 14px;
+    top: 8px;
+    border: none;
     cursor: pointer;
 }
+
 
 
 

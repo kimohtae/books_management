@@ -29,7 +29,7 @@
                     <i class="fas fa-lightbulb"></i>
                 </a>        
                 <div class="search_group">
-                    <input type="text" id="search_box" placeholder="Search...">
+                    <input type="text" id="header_search_box" placeholder="Search...">
                     <button id="search_btn"><i class="fas fa-search"></i></button>
                 </div>
             </div>
@@ -42,6 +42,7 @@
                 <a href="/admin/bookList" id="upper_menu_bookList">Book List</a>
                 <a href="/admin/goodsList" id="upper_menu_goodsList">Goods List</a>
                 <a href="/admin/accountList" id="upper_menu_accountList">Account List</a>
+                <a href="/admin/memberList" id="upper_menu_accountList">Member List</a>
                 <a href="/admin/page" id="upper_menu_admin">Administation</a>
             </div>
             <div class="upper_right">

@@ -165,6 +165,7 @@
 }
 .popup_mid input, .popup_mid p{
     display: inline-block;
+    padding-bottom: 4px;
     width: 88%;
     margin: auto;
     padding-left: 10px;
@@ -182,7 +183,7 @@
 }
 .popup_mid #input_cat{
     position: absolute;
-    bottom: 24px;
+    bottom: 12px;
     right: 27px;
     width: 144px;
     height: 25px;
@@ -217,7 +218,7 @@
     height: 330px;
     position: absolute;
     left: calc(50% + 200px); 
-    top: calc(50% - 210px);
+    top: 26%;
     margin: auto;
     background-color: #eee;
     border: 1px solid #333;
@@ -297,6 +298,9 @@ background-color: #bbb;
     display: inline-block;
 }
 #upper_menu_accountList{
+    display: inline-block;
+}
+#upper_menu_memberList{
     display: inline-block;
 }
 #upper_menu_books{

@@ -4,6 +4,7 @@ import com.ohtae.book_management.service.AccountService;
 import com.ohtae.book_management.service.AdminMainService;
 import com.ohtae.book_management.service.BookService;
 import com.ohtae.book_management.service.GoodsService;
+import com.ohtae.book_management.service.MemberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
@@ -18,6 +19,7 @@ public class MainController {
     @Autowired GoodsService Gservice;
     @Autowired AccountService Aservice;
     @Autowired AdminMainService AMservice;
+    @Autowired MemberService Mservice;
 
 
     @GetMapping("/")
@@ -63,6 +65,16 @@ public class MainController {
         ){
         model.addAttribute("data", Aservice.getAccountList(offset,keyword));
         return"/admin/adminAccountList";
+    }
+    @GetMapping("/admin/memberList")
+    public String getAdminMemberPage(
+        Model model, 
+        @RequestParam @Nullable Integer offset,
+        @RequestParam @Nullable String keyword,
+        @RequestParam @Nullable String type
+        ){
+        model.addAttribute("data", Mservice.getMemberList(offset, keyword, type));
+        return"/admin/adminMemberList";
     }
 
 }

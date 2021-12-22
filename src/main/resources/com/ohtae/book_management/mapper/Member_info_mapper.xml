@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohtae.book_management.mapper.Member_info_mapper">
+    <select id="getMemberList" resultType="com.ohtae.book_management.data.MemberVO">
+        select 
+            mi_seq,mi_name,mi_email,mi_phone,mi_id,mi_birth,
+            mi_reg_dt,mi_status,mi_grade,mi_address
+        from member_info 
+        <if test="type=='name'">
+            where mi_name like #{keyword}
+        </if>
+        <if test="type=='id'">
+            where mi_id like #{keyword}
+        </if>
+        order by mi_seq desc limit 20 offset #{offset}
+    </select>
+    <select id="getMemberCounts" resultType="java.lang.Integer">
+        select count(*) from member_info 
+        <if test="type=='name'">
+            where mi_name like #{keyword}
+        </if>
+        <if test="type=='id'">
+            where mi_id like #{keyword}
+        </if>
+    </select>
+    <select id="getLatestMemberHistorySeq" resultType="java.lang.Integer">
+        select mi_seq from member_info order by mi_seq desc limit 1
+    </select>
+
+
+
+
+    <insert id="insertMemberInfo">
+        insert into member_info(mi_name,mi_email,mi_phone,mi_id,mi_pwd,mi_birth,mi_status,mi_grade,mi_address)
+        values (#{mi_name},#{mi_email},#{mi_phone},#{mi_id},#{mi_pwd},#{mi_birth},#{mi_status},#{mi_grade},#{mi_address})
+    </insert>
+    <insert id="insertMemberInfoHistory">
+        insert into member_info_history(mih_type,mih_content,mih_mi_seq)
+        values(#{mih_type},#{mih_content},#{mih_mi_seq})
+    </insert>
+
+
+
+
+    <update id="updateMemberStatus">
+        update member_info set mi_status = #{status}
+        where mi_seq = #{seq}
+    </update>
+    <update id="updateMemberGrade">
+        update member_info set mi_grade = #{grade}
+        where mi_seq = #{seq}
+    </update>
+
+
+
+
+    <delete id="deleteMemberList">
+        delete from member_info where mi_seq=#{seq}
+    </delete>
+</mapper>
+
+

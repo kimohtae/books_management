@@ -76,6 +76,9 @@
 #upper_menu_accountList{
     display: none;
 }
+#upper_menu_memberList{
+    display: none;
+}
 #upper_menu_books{
     display: inline-block;
 }
