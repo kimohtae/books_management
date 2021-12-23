@@ -36,3 +36,4 @@ public class MemberInfoAPIController {
         return service.deleteMemberList(seq);
     }
 }
+

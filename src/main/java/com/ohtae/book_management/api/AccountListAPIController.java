@@ -26,7 +26,7 @@ public class AccountListAPIController {
         return service.getAccountBySeq(seq);
     }
     @GetMapping("/accountList/byKeyword")
-    public Map<String,Object> getAccountBySeq(@RequestParam @Nullable String keyword){
+    public Map<String,Object> getAccountNameList(@RequestParam @Nullable String keyword){
         return service.getAccountNameList(keyword);
     }
 

@@ -43,38 +43,38 @@ public class MemberService {
         Map<String,Object> map = new LinkedHashMap<String,Object>();
         if(data.getMi_birth().equals("") || data.getMi_birth()==null){
             map.put("status", false);
-            map.put("message", "생년월일을 입력해주세요.");
+            map.put("message", "생년월일을 입력하세요.");
             return map;
         }
         if(data.getMi_phone().equals("") || data.getMi_phone()==null){
             map.put("status", false);
-            map.put("message", "전화번호를 입력해주세요.");
+            map.put("message", "전화번호를 입력하세요.");
             return map;
         }
         if(data.getMi_email().equals("") || data.getMi_email()==null){
             map.put("status", false);
-            map.put("message", "이메일을 입력해주세요.");
+            map.put("message", "이메일을 입력하세요.");
             return map;
         }
         if(data.getMi_address().equals("") || data.getMi_address()==null){
             map.put("status", false);
-            map.put("message", "주소를 입력해주세요.");
+            map.put("message", "주소를 입력하세요.");
             return map;
         }
         if(data.getMi_status()==0 || data.getMi_status()==null){
             map.put("status", false);
-            map.put("message", "상태를 선택해 주세요.");
+            map.put("message", "상태를 선택하세요.");
             return map;
         }
         if(data.getMi_grade()==0 || data.getMi_grade()==null){
             map.put("status", false);
-            map.put("message", "등급을 선택해 주세요.");
+            map.put("message", "등급을 선택하세요.");
             return map;
         }
-        data.setMi_pwd(AESAlgorithm.Encrypt(data.getMi_pwd()));
-
+        
         map.put("status", true);
         map.put("message", "추가 되었습니다.");
+        data.setMi_pwd(AESAlgorithm.Encrypt(data.getMi_pwd()));
         Mmapper.insertMemberInfo(data);
 
         MemberInfoHistoryVO his = new MemberInfoHistoryVO();

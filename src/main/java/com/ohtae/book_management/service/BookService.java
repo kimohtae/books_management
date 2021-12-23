@@ -68,32 +68,32 @@ public class BookService {
         Map<String,Object> map = new LinkedHashMap<String,Object>();
         if(data.getBi_title().equals("") || data.getBi_title()==null){
             map.put("status", false);
-            map.put("message", "제목을 입력해주세요.");
+            map.put("message", "제목을 입력하세요.");
             return map;
         }
         if(data.getBi_author().equals("") || data.getBi_author()==null){
             map.put("status", false);
-            map.put("message", "작가를 입력해주세요.");
+            map.put("message", "작가를 입력하세요.");
             return map;
         }
         if(data.getBi_price()==0 || data.getBi_price()==null){
             map.put("status", false);
-            map.put("message", "가격을 입력해주세요.");
+            map.put("message", "가격을 입력하세요.");
             return map;
         }
         if(data.getBi_page()==0 || data.getBi_page()==null){
             map.put("status", false);
-            map.put("message", "페이지 수를 입력해주세요.");
+            map.put("message", "페이지 수를 입력하세요.");
             return map;
         }
         if(data.getBi_al_seq()==0 || data.getBi_al_seq()==null){
             map.put("status", false);
-            map.put("message", "출판사를 선택해주세요.");
+            map.put("message", "출판사를 선택하세요.");
             return map;
         }
         if(data.getBi_bc_seq()==0 || data.getBi_bc_seq()==null){
             map.put("status", false);
-            map.put("message", "카테고리를 선택해주세요.");
+            map.put("message", "카테고리를 선택하세요.");
             return map;
         }
         map.put("status", true);
@@ -113,32 +113,32 @@ public class BookService {
         Map<String,Object> map = new LinkedHashMap<String,Object>();
         if(data.getBi_title().equals("") || data.getBi_title()==null){
             map.put("status", false);
-            map.put("message", "제목을 입력해주세요.");
+            map.put("message", "제목을 입력하세요.");
             return map;
         }
         if(data.getBi_author().equals("") || data.getBi_author()==null){
             map.put("status", false);
-            map.put("message", "작가를 입력해주세요.");
+            map.put("message", "작가를 입력하세요.");
             return map;
         }
         if(data.getBi_price()==0 || data.getBi_price()==null){
             map.put("status", false);
-            map.put("message", "가격을 입력해주세요.");
+            map.put("message", "가격을 입력하세요.");
             return map;
         }
         if(data.getBi_page()==0 || data.getBi_page()==null){
             map.put("status", false);
-            map.put("message", "페이지 수를 입력해주세요.");
+            map.put("message", "페이지 수를 입력하세요.");
             return map;
         }
         if(data.getBi_al_seq()==0 || data.getBi_al_seq()==null){
             map.put("status", false);
-            map.put("message", "출판사를 선택해주세요.");
+            map.put("message", "출판사를 선택하세요.");
             return map;
         }
         if(data.getBi_bc_seq()==0 || data.getBi_bc_seq()==null){
             map.put("status", false);
-            map.put("message", "카테고리를 선택해주세요.");
+            map.put("message", "카테고리를 선택하세요.");
             return map;
         }
         

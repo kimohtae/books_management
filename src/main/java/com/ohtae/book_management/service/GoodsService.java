@@ -51,22 +51,22 @@ public class GoodsService {
         Map<String,Object> map = new LinkedHashMap<String,Object>();
         if(data.getGi_name().equals("") || data.getGi_name()==null){
             map.put("status", false);
-            map.put("message", "이름을 입력해주세요.");
+            map.put("message", "이름을 입력하세요.");
             return map;
         }
         if(data.getGi_price()==0 || data.getGi_price()==null){
             map.put("status", false);
-            map.put("message", "가격을 입력해주세요.");
+            map.put("message", "가격을 입력하세요.");
             return map;
         }
         if(data.getGi_al_seq()==0 || data.getGi_al_seq()==null){
             map.put("status", false);
-            map.put("message", "제작사를 선택해주세요.");
+            map.put("message", "제작사를 선택하세요.");
             return map;
         }
         if(data.getGi_gc_seq()==0 || data.getGi_gc_seq()==null){
             map.put("status", false);
-            map.put("message", "카테고리를 선택해주세요.");
+            map.put("message", "카테고리를 선택하세요.");
             return map;
         }
 
@@ -87,22 +87,22 @@ public class GoodsService {
         Map<String,Object> map = new LinkedHashMap<String,Object>();
         if(data.getGi_name().equals("") || data.getGi_name()==null){
             map.put("status", false);
-            map.put("message", "이름을 입력해주세요.");
+            map.put("message", "이름을 입력하세요.");
             return map;
         }
         if(data.getGi_price()==0 || data.getGi_price()==null){
             map.put("status", false);
-            map.put("message", "가격을 입력해주세요.");
+            map.put("message", "가격을 입력하세요.");
             return map;
         }
         if(data.getGi_al_seq()==0 || data.getGi_al_seq()==null){
             map.put("status", false);
-            map.put("message", "제작사를 선택해주세요.");
+            map.put("message", "제작사를 선택하세요.");
             return map;
         }
         if(data.getGi_gc_seq()==0 || data.getGi_gc_seq()==null){
             map.put("status", false);
-            map.put("message", "카테고리를 선택해주세요.");
+            map.put("message", "카테고리를 선택하세요.");
             return map;
         }
         
